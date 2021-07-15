@@ -1,130 +1,152 @@
 import Head from "next/head";
-
+import React, {useState} from 'react'
 import {
   Anchor,
-  Avatar,
   Box,
+  Button,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Collapsible,
   Footer,
   Heading,
-  Nav,
-  Paragraph,
-} from "grommet";
+  Image,
+  InfiniteScroll,
+  Grommet,
+  Layer,
+  ResponsiveContext,
+  Text
+} from 'grommet'
+import {FormClose, Menu} from 'grommet-icons'
 
-import { Github, Slack } from "grommet-icons";
+const AppBar = (props) => (
+  <Box
+  tag='header'
+  direction='row'
+  align='center'
+  justify='between'
+  background='brand'
+  pad={{ left: 'medium', right: 'small', vertical: 'small' }}
+  style={{zIndex: 1}}
+  {...props}/
+  >
+);
+
+const theme = {
+  global: {
+    colors: {
+      brand: '#FF8210',
+    },
+    font: {
+      family: 'Roboto',
+      size: '18px',
+      height: '20px',
+    },
+  },
+};
 
 export default function Home() {
   const gravatarLink =
     "//s.gravatar.com/avatar/b7fb138d53ba0f573212ccce38a7c43b?s=80";
+    const [showSidebar, setShowSidebar] = useState(false);
 
-  return (
-    <Box
-      flex
-      margin={{ horizontal: "auto" }}
-      width={{ max: "xlarge" }}
-      height={{ min: "100%" }}
-      width={{ max: "xlarge" }}
-    >
+    return (
+      <Grommet theme={theme} full>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto"
+          rel="stylesheet"
+        />
       </Head>
-
-      <Box flex role="main" pad={{ vertical: "large" }}>
-        <Heading>
-          Welcome to <Anchor href="https://nextjs.org">Next.js</Anchor> and{" "}
-          <Anchor href="https://v2.grommet.io">Grommet!</Anchor>
-        </Heading>
-
-        <Paragraph fill>
-          This application is a boilerplate for using Next.js Framework, React
-          library and the Grommet Component Library.
-        </Paragraph>
-
-        <Paragraph fill>
-          The application and the page you are currently viewing is the
-          default page that is created after bootstrapping a Next.js with{" "}
-          <Anchor href="https://nextjs.org/docs/api-reference/create-next-app">
-            Create Next App
-          </Anchor>
-          .
-        </Paragraph>
-
-        <Paragraph fill>
-          To the default Create Next App application we added the grommet
-          dependency, and replaced the HTML tags with actual grommet
-          components, as a result you are viewing the same default page, with
-          only Grommet components.
-        </Paragraph>
-
-        <Paragraph fill>
-          Feel free to shoot the Grommet team any feedback and questions by
-          using this page footer contact info.
-        </Paragraph>
-
-        <Paragraph fill>
-          Get started by editing <code>pages/index.js</code>
-        </Paragraph>
-
-        <Box>
-          <Anchor href="https://nextjs.org/docs">
-            <Heading level={3}>Documentation &rarr;</Heading>
-          </Anchor>
-          <Paragraph>
-            Find in-depth information about Next.js features and API.
-          </Paragraph>
-
-          <Anchor href="https://nextjs.org/learn">
-            <Heading level={3}>Learn &rarr;</Heading>
-          </Anchor>
-          <p>Learn about Next.js in an interactive course with quizzes!</p>
-
-          <Anchor href="https://github.com/vercel/next.js/tree/master/examples">
-            <Heading level={3}>Examples &rarr;</Heading>
-          </Anchor>
-          <Paragraph>
-            Discover and deploy boilerplate example Next.js projects.
-          </Paragraph>
-
-          <Anchor href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app">
-            <Heading level={3}>Deploy &rarr;</Heading>
-          </Anchor>
-          <Paragraph>
-            Instantly deploy your Next.js site to a public URL with Vercel.
-          </Paragraph>
-        </Box>
-
-        <Anchor
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Next.js Powered by Vercel
-        </Anchor>
+        <ResponsiveContext.Consumer>
+          {size => (
+      <Box fill >
+        <AppBar>
+          <Box direction='row'>
+          <Button
+          icon={<Menu/>}
+          onClick={
+            () => {
+              setShowSidebar(!showSidebar)
+            }
+          } />
+          <Heading level='3' margin='xsmall'>Team 1991</Heading>
+          </Box>
+        </AppBar>
+        <Box direction='row' flex overflow={{horizontal: 'hidden', vertical: 'auto'}}>
+        {(!showSidebar || size !== 'small') ? (
+        <Collapsible direction='horizontal' open={showSidebar}>
+          <Box
+          width='medium'
+          background='light-2'
+          elevation='small'
+          align='center'
+          justify='center'
+          >
+            sidebar
+          </Box>
+        </Collapsible>
+        ) : (
+        <Layer>
+          <Box
+          background='light-2'
+          tag='header'
+          justify='end'
+          align='center'
+          direction='row'
+          >
+            <Button
+            icon={<FormClose />}
+            onClick={() => setShowSidebar(false)}
+            />
+            </Box>
+          <Box
+            fill
+            background='light-2'
+            align='center'
+            justify='center'
+          >
+            sidebar
+            </Box>
+        </Layer>
+        )}
+        <Box overflow='auto' align='center' >
+          <Box flex={{shrink:false}} height='480px' width='full'>
+            <Image fit='cover' src='https://cdn.discordapp.com/attachments/798705594717831168/842760745124233236/IMG_20210513_200400.jpg' />
+          </Box>
+          <Box 
+          width='full' 
+          pad={{
+            'vertical': 'small',
+            'horizontal': 'medium'}} 
+            >
+            <Card width='full' background='light-1' elevation='large' flex='grow'>
+              <CardHeader pad='medium' background='light-3'>News Feed</CardHeader>
+              <CardBody pad='medium' >
+                <InfiniteScroll items={[1,2,3,4,5,7,8,9,10]}>
+                {(item) => (
+                  <Box
+                    pad="medium"
+                    background={`dark-${(item % 3) + 1}`}
+                  >
+                    {item}
+                  </Box>
+                )}
+                </InfiniteScroll>
+              </CardBody>
+              <CardFooter pad='medium'>Footer</CardFooter>
+            </Card>
+            <Footer pad='medium'>
+              <Text size='small'> hi there </Text>
+              <Anchor label='oop'></Anchor>
+            </Footer>
+          </Box>
+        </Box> 
       </Box>
-      <Footer
-        background="light-2"
-        pad={{ vertical: "small", horizontal: "medium" }}
-      >
-        <Anchor href="https://github.com/ShimiSun">
-          <Avatar src={gravatarLink} />
-        </Anchor>
-        <Nav direction="row" align="center">
-          <Anchor
-            a11yTitle="Reach out to the Grommet Community on Slack"
-            href="https://slack-invite.grommet.io/"
-            icon={<Slack color="plain" />}
-            target="_blank"
-            rel="noreferrer noopener"
-          />
-          <Anchor
-            a11yTitle="Github repository"
-            href="https://github.com/grommet/nextjs-boilerplate"
-            icon={<Github color="black" />}
-            target="_blank"
-            rel="noreferrer noopener"
-          />
-        </Nav>
-      </Footer>
     </Box>
-  );
+          )}
+        </ResponsiveContext.Consumer>
+      </Grommet>
+    );
 }

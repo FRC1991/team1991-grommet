@@ -28,7 +28,7 @@ const AppBar = (props) => (
         >
             Team 1991
             </Heading>
-        <Button default label='News Feed' href='members' color='dark-1' margin='medium' size='medium'/>
+        <Button default label='News Feed' href='feed' color='dark-1' margin='medium' size='medium'/>
             <Nav style={{'float': 'right', 'marginRight': 'none', 'marginLeft': 'auto'}} direction='row' background='light-1' pad='medium'>
                 <Anchor icon={<Menu/>} href='admin/index.html'/>
             </Nav>

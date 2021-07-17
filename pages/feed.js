@@ -23,6 +23,7 @@ import {
   Text
 } from 'grommet'
 import {FormClose, Menu} from 'grommet-icons'
+import Post from './post'
 
 const theme = {
   global: {
@@ -37,7 +38,7 @@ const theme = {
   },
 };
 
-const Home = ({contents, data}) => {
+const feed = ({posts}) => {
     return (
       <Grommet theme={theme} full>
       <Head>
@@ -56,20 +57,11 @@ const Home = ({contents, data}) => {
             >
             <Card width='full' background='light-1' elevation='large' flex='grow'>
               <CardHeader pad='medium' background='light-3'>News Feed</CardHeader>
-              <CardBody pad='medium' >
-                <InfiniteScroll items={
-                  contents
-                  }>
+                <InfiniteScroll items={posts}>
                 {(item) => (
-                  <Box
-                    pad="medium"
-                    background={`dark-${(item % 3) + 1}`}
-                  >
-                    {item}
-                  </Box>
+                <Post title={item.data.title} body={item.content} image={item.data?.thumbnail} date='today'/>
                 )}
                 </InfiniteScroll>
-              </CardBody>
               <CardFooter pad='medium'>Footer</CardFooter>
             </Card>
             <Footer pad='medium'>
@@ -88,18 +80,11 @@ export async function getStaticProps(){
     const content = fs.readFileSync(path.join('./posts', file), 'utf-8')
     posts.push(matter(content))
     })
-  const contents = []
-  const data = []
-  posts.forEach(post => {
-    data.push(post.data)
-    contents.push(post.content)
-  })
   return {
     props: {
-      contents: contents,
-      data: data,
+      posts: posts
     }
   }
 }
 
-export default Home;
+export default feed;

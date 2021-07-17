@@ -14,7 +14,7 @@ const Post  = ({contents, data}) => {
 
 export const getStaticPaths = async () => {
 
-  const staticPaths = fs.readdirSync('./posts');
+  const staticPaths = fs.readdirSync('../../posts');
   const paths = staticPaths.map(filename => ({
     params: {
       slug: filename.replace('.md', '')

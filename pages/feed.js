@@ -75,10 +75,10 @@ const feed = ({posts}) => {
 
 export async function getStaticProps(){
   console.log(__dirname)
-  const files = fs.readdirSync('posts')
+  const files = fs.readdirSync(path.join(__dirname,'..','..','..','posts'))
   const posts = [];
   files.forEach(file => {
-    const content = fs.readFileSync(path.join('posts', file), 'utf-8')
+    const content = fs.readFileSync(path.join(__dirname,'..','..','..','posts', file), 'utf-8')
     posts.push(matter(content))
     })
   return {

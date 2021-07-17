@@ -19,19 +19,7 @@ import {
   Text
 } from 'grommet'
 import {FormClose, Menu} from 'grommet-icons'
-
-const AppBar = (props) => (
-  <Box
-  tag='header'
-  direction='row'
-  align='center'
-  justify='between'
-  background='brand'
-  pad={{ left: 'medium', right: 'small', vertical: 'small' }}
-  style={{zIndex: 1}}
-  {...props}/
-  >
-);
+import AppBar from '../components/AppBar'
 
 const theme = {
   global: {
@@ -47,10 +35,6 @@ const theme = {
 };
 
 export default function Home() {
-  const gravatarLink =
-    "//s.gravatar.com/avatar/b7fb138d53ba0f573212ccce38a7c43b?s=80";
-    const [showSidebar, setShowSidebar] = useState(false);
-
     return (
       <Grommet theme={theme} full>
       <Head>
@@ -59,59 +43,10 @@ export default function Home() {
           rel="stylesheet"
         />
       </Head>
-        <ResponsiveContext.Consumer>
-          {size => (
       <Box fill >
-        <AppBar>
-          <Box direction='row'>
-          <Button
-          icon={<Menu/>}
-          onClick={
-            () => {
-              setShowSidebar(!showSidebar)
-            }
-          } />
-          <Heading level='3' margin='xsmall'>Team 1991</Heading>
-          </Box>
-        </AppBar>
-        <Box direction='row' flex overflow={{horizontal: 'hidden', vertical: 'auto'}}>
-        {(!showSidebar || size !== 'small') ? (
-        <Collapsible direction='horizontal' open={showSidebar}>
-          <Box
-          width='medium'
-          background='light-2'
-          elevation='small'
-          align='center'
-          justify='center'
-          >
-            sidebar
-          </Box>
-        </Collapsible>
-        ) : (
-        <Layer>
-          <Box
-          background='light-2'
-          tag='header'
-          justify='end'
-          align='center'
-          direction='row'
-          >
-            <Button
-            icon={<FormClose />}
-            onClick={() => setShowSidebar(false)}
-            />
-            </Box>
-          <Box
-            fill
-            background='light-2'
-            align='center'
-            justify='center'
-          >
-            sidebar
-            </Box>
-        </Layer>
-        )}
-        <Box overflow='auto' align='center' >
+        <AppBar />
+        <Box direction='row' overflow='auto'>
+        <Box align='center' >
           <Box flex={{shrink:false}} height='480px' width='full'>
             <Image fit='cover' src='https://cdn.discordapp.com/attachments/798705594717831168/842760745124233236/IMG_20210513_200400.jpg' />
           </Box>
@@ -145,8 +80,6 @@ export default function Home() {
         </Box> 
       </Box>
     </Box>
-          )}
-        </ResponsiveContext.Consumer>
-      </Grommet>
+  </Grommet>
     );
 }

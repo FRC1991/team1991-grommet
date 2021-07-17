@@ -1,5 +1,9 @@
 import Head from "next/head";
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter'
 import React, {useState} from 'react'
+import AppBar from '../components/AppBar'
 import {
   Anchor,
   Box,
@@ -20,19 +24,6 @@ import {
 } from 'grommet'
 import {FormClose, Menu} from 'grommet-icons'
 
-const AppBar = (props) => (
-  <Box
-  tag='header'
-  direction='row'
-  align='center'
-  justify='between'
-  background='brand'
-  pad={{ left: 'medium', right: 'small', vertical: 'small' }}
-  style={{zIndex: 1}}
-  {...props}/
-  >
-);
-
 const theme = {
   global: {
     colors: {
@@ -46,9 +37,7 @@ const theme = {
   },
 };
 
-export default function Home() {
-    const [showSidebar, setShowSidebar] = useState(false);
-
+const Home = ({contents, data}) => {
     return (
       <Grommet theme={theme} full>
       <Head>
@@ -57,58 +46,7 @@ export default function Home() {
           rel="stylesheet"
         />
       </Head>
-        <ResponsiveContext.Consumer>
-          {size => (
-      <Box fill >
-        <AppBar>
-          <Box direction='row'>
-          <Button
-          icon={<Menu/>}
-          onClick={
-            () => {
-              setShowSidebar(!showSidebar)
-            }
-          } />
-          <Heading level='3' margin='xsmall'>Team 1991</Heading>
-          </Box>
-        </AppBar>
-        <Box direction='row' flex overflow={{horizontal: 'hidden', vertical: 'auto'}}>
-        {(!showSidebar || size !== 'small') ? (
-        <Collapsible direction='horizontal' open={showSidebar}>
-          <Box
-          width='medium'
-          background='light-2'
-          elevation='small'
-          align='center'
-          justify='center'
-          >
-            sidebar
-          </Box>
-        </Collapsible>
-        ) : (
-        <Layer>
-          <Box
-          background='light-2'
-          tag='header'
-          justify='end'
-          align='center'
-          direction='row'
-          >
-            <Button
-            icon={<FormClose />}
-            onClick={() => setShowSidebar(false)}
-            />
-            </Box>
-          <Box
-            fill
-            background='light-2'
-            align='center'
-            justify='center'
-          >
-            sidebar
-            </Box>
-        </Layer>
-        )}
+      <AppBar pad='none'/>
         <Box overflow='auto' align='center' width='full' >
           <Box 
           width='full' 
@@ -119,7 +57,9 @@ export default function Home() {
             <Card width='full' background='light-1' elevation='large' flex='grow'>
               <CardHeader pad='medium' background='light-3'>News Feed</CardHeader>
               <CardBody pad='medium' >
-                <InfiniteScroll items={[1,2,3,4,5,7,8,9,10]}>
+                <InfiniteScroll items={
+                  contents
+                  }>
                 {(item) => (
                   <Box
                     pad="medium"
@@ -138,10 +78,28 @@ export default function Home() {
             </Footer>
           </Box>
         </Box> 
-      </Box>
-    </Box>
-          )}
-        </ResponsiveContext.Consumer>
-      </Grommet>
-    );
+  </Grommet>
+    )}
+
+export async function getStaticProps(){
+  const files = fs.readdirSync('./posts')
+  const posts = [];
+  files.forEach(file => {
+    const content = fs.readFileSync(path.join('./posts', file), 'utf-8')
+    posts.push(matter(content))
+    })
+  const contents = []
+  const data = []
+  posts.forEach(post => {
+    data.push(post.data)
+    contents.push(post.content)
+  })
+  return {
+    props: {
+      contents: contents,
+      data: data,
+    }
+  }
 }
+
+export default Home;

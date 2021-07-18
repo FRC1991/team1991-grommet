@@ -75,10 +75,14 @@ const feed = ({posts}) => {
 
 export async function getStaticProps(){
   console.log(process.cwd())
-  const files = fs.readdirSync(path.join(process.cwd(), 'public', 'posts'))
+  let basePath = process.cwd()
+  if(process.env.NODE_ENV === 'production'){
+    basePath = path.join(process.cwd(), '.next/')
+  }
+  const files = fs.readdirSync(path.join(basePath, 'posts'))
   const posts = [];
   files.forEach(file => {
-    const content = fs.readFileSync(path.join(process.cwd(), 'public', 'posts', file), 'utf-8')
+    const content = fs.readFileSync(path.join(basePath, 'posts', file), 'utf-8')
     posts.push(matter(content))
     })
   return {

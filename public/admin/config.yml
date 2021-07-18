@@ -13,7 +13,7 @@ collections:
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for front matter. You will need to modify fields according to your project.
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publishing Date", widget:"datetime", name: "date", format: "X", date_format: true, time_format: true}
+      - {label: "Publishing Date", widget: "datetime", name: "date", format: "X", date_format: true, time_format: true}
       - {label: "Description", name: "description", widget: "string"}
       - {label: "Featured Image", required: false, name: "thumbnail", widget: "image"}
       - {label: "Author", name: "author", widget: "string", default: "Admin"}

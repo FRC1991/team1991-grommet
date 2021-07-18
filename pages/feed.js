@@ -39,6 +39,9 @@ const theme = {
 };
 
 const feed = ({posts}) => {
+  const unixEpoch = posts[0].data.date * 1000;
+  const date = new Date(unixEpoch);
+  const dateString = date.toLocaleDateString();
     return (
       <Grommet theme={theme} full>
       <Head>
@@ -59,7 +62,7 @@ const feed = ({posts}) => {
               <CardHeader pad='medium' background='light-3'>News Feed</CardHeader>
                 <InfiniteScroll items={posts}>
                 {(item) => (
-                <Post title={item.data.title} body={item.content} image={item.data?.thumbnail} date='today'/>
+                <Post title={item.data.title} body={item.content} image={item.data?.thumbnail} date={dateString}/>
                 )}
                 </InfiniteScroll>
               <CardFooter pad='medium'>Footer</CardFooter>
@@ -84,6 +87,7 @@ export async function getStaticProps(){
   files.forEach(file => {
     const content = fs.readFileSync(path.join(basePath, 'posts', file), 'utf-8')
     posts.push(matter(content))
+    console.log(matter(content).data.date)
     })
   return {
     props: {

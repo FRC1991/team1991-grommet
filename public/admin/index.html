@@ -8,34 +8,35 @@
 <body>
   <script src="https://unpkg.com/netlify-cms@2.9.7/dist/netlify-cms.js"></script>
   <script>
-    var PostPreview = createClass({
-      render: function() {
-        var entry = this.props.entry;
-        var image = entry.getIn(['data', 'thumbnail']);
-        var bg = this.props.getAsset(image);
-        var dateString = new Date(parseInt(entry.getIn(['data', 'date'])*1000)).toLocaleDateString();
-        return h('div', {style: {
-            '-moz-box-shadow': '3px 3px 5px 6px #ccc',
-            '-webkit-box-shadow': '3px 3px 5px 6px #ccc',
-            'box-shadow': '3px 3px 5px 6px #ccc',
-            'padding': '0.5px 5px',
-          }},
-        h('div',{style: {
-          'background-color': '#EDEDED',
-          'padding': '5px',
-        }},
-          h('h1', {style: {'font-family': 'Verdana, sans-serif', 'color': '#444444'}}, entry.getIn(['data', 'title'])),
-          h('h2', {style: {'font-family': 'Verdana, sans-serif', 'color': '#444444'}}, dateString),
-          ),
-          h('div', {style: {}},
-          h('h3', {style: {'font-family': 'Verdana, sans-serif', 'color': '#333333'}}, entry.getIn(['data', 'description'])),
-          h('img', {src: bg.toString()}),
-          h('div', {style: {'font-family': 'Verdana, sans-serif', 'color': '#333333'}}, this.props.widgetFor('body'))
-          )
-        );
-      }
-    });
-    CMS.registerPreviewTemplate("blog", PostPreview);
+//     var PostPreview = createClass({
+//       render: function() {
+//         var entry = this.props.entry;
+//         var image = entry.getIn(['data', 'thumbnail']);
+//         var bg = this.props.getAsset(image);
+//         var dateString = new Date(parseInt(entry.getIn(['data', 'date'])*1000)).toLocaleDateString();
+//         return h('div', {style: {
+//             '-moz-box-shadow': '3px 3px 5px 6px #ccc',
+//             '-webkit-box-shadow': '3px 3px 5px 6px #ccc',
+//             'box-shadow': '3px 3px 5px 6px #ccc',
+//             'padding': '0.5px 5px',
+//           }},
+//         h('div',{style: {
+//           'background-color': '#EDEDED',
+//           'padding': '5px',
+//         }},
+//           h('h1', {style: {'font-family': 'Verdana, sans-serif', 'color': '#444444'}}, entry.getIn(['data', 'title'])),
+//           h('h2', {style: {'font-family': 'Verdana, sans-serif', 'color': '#444444'}}, dateString),
+//           ),
+//           h('div', {style: {}},
+//           h('h3', {style: {'font-family': 'Verdana, sans-serif', 'color': '#333333'}}, entry.getIn(['data', 'description'])),
+//           h('img', {src: bg.toString()}),
+//           h('div', {style: {'font-family': 'Verdana, sans-serif', 'color': '#333333'}}, this.props.widgetFor('body'))
+//           )
+//         );
+//       }
+//     });
+//     CMS.registerPreviewTemplate("blog", PostPreview);
+    CMS.registerPreviewStyle("/preview.css");
   </script>
 </body>
 </html>

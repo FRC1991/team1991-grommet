@@ -8,35 +8,45 @@
 <body>
   <script src="https://unpkg.com/netlify-cms@2.9.7/dist/netlify-cms.js"></script>
   <script>
-//     var PostPreview = createClass({
-//       render: function() {
-//         var entry = this.props.entry;
-//         var image = entry.getIn(['data', 'thumbnail']);
-//         var bg = this.props.getAsset(image);
-//         var dateString = new Date(parseInt(entry.getIn(['data', 'date'])*1000)).toLocaleDateString();
-//         return h('div', {style: {
-//             '-moz-box-shadow': '3px 3px 5px 6px #ccc',
-//             '-webkit-box-shadow': '3px 3px 5px 6px #ccc',
-//             'box-shadow': '3px 3px 5px 6px #ccc',
-//             'padding': '0.5px 5px',
-//           }},
-//         h('div',{style: {
-//           'background-color': '#EDEDED',
-//           'padding': '5px',
-//         }},
-//           h('h1', {style: {'font-family': 'Verdana, sans-serif', 'color': '#444444'}}, entry.getIn(['data', 'title'])),
-//           h('h2', {style: {'font-family': 'Verdana, sans-serif', 'color': '#444444'}}, dateString),
-//           ),
-//           h('div', {style: {}},
-//           h('h3', {style: {'font-family': 'Verdana, sans-serif', 'color': '#333333'}}, entry.getIn(['data', 'description'])),
-//           h('img', {src: bg.toString()}),
-//           h('div', {style: {'font-family': 'Verdana, sans-serif', 'color': '#333333'}}, this.props.widgetFor('body'))
-//           )
-//         );
-//       }
-//     });
-//     CMS.registerPreviewTemplate("blog", PostPreview);
-    CMS.registerPreviewStyle("/preview.css");
+    var PostPreview = createClass({
+      render: function() {
+        var entry = this.props.entry;
+        var image = entry.getIn(['data', 'thumbnail']);
+        var imgSrc = this.props.getAsset(image)?.toString();
+        var dateString = new Date(parseInt(entry.getIn(['data', 'date'])*1000)).toLocaleDateString();
+        var author = entry.getIn(['data', 'author']);
+        var title = entry.getIn(['data', 'title']);
+        var description = entry?.getIn(['data', 'description']);
+        var body = entry?.getIn(['data', 'body']);
+        return h('div', {style: {
+            '-moz-box-shadow': '3px 3px 5px 6px #ccc',
+            '-webkit-box-shadow': '3px 3px 5px 6px #ccc',
+            'box-shadow': '3px 3px 5px 6px #ccc',
+            'padding': '0.5px 5px',
+            'border-radius': '1rem',
+          }},
+        h('div',{style: {
+          'background-color': '#EDEDED',
+          'border-radius': '0.5rem',
+          'margin-left': '5px',
+          'margin-top': '10px',
+          'padding-top': '5px',
+          'padding-bottom': '10px',
+          'padding-left': '10px',
+        }},
+          h('h2', {style: {'margin': '0px', 'font-family': 'Verdana, sans-serif', 'color': '#444444',}}, title),
+          h('h5', {style: {'font-family': 'Verdana, sans-serif', 'color': '#444444', 'margin': '0px'}}, `Published: ${dateString}`),
+          ),
+          h('div', {style: {'padding-left': '10px', 'padding-right': '10px', 'padding-bottom': '10px', 'padding-top': '5px'}},
+          h('h4', {style: {'font-family': 'Verdana, sans-serif', 'color': '#333333', 'margin-top': '0px', 'margin-bottom': '2px'}}, description),
+          h('h5', {style: {'font-family': 'Verdana, sans-serif', 'color': '#333333', 'margin-top': '0px', 'margin-bottom': '2px'}}, `Author: ${author}`),
+          h('img', {src: imgSrc || '', style: {'max-width': '95%', 'padding': '10px', 'display': 'block', 'margin-left': 'auto', 'margin-right': 'auto',}}),
+          h('div', {style: {'font-family': 'Verdana, sans-serif', 'color': '#333333'}}, body)
+        )
+        );
+      }
+    });
+    CMS.registerPreviewTemplate("blog", PostPreview);
   </script>
 </body>
 </html>

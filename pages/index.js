@@ -36,16 +36,16 @@ const theme = {
 
 export default function Home() {
     return (
-      <Grommet theme={theme} full>
+      <Grommet theme={theme} full='min' overflow='scroll'>
       <Head>
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto"
           rel="stylesheet"
         />
       </Head>
-      <Box fill >
+      <Box >
         <AppBar />
-        <Box direction='row' overflow='auto'>
+        <Box direction='row'>
         <Box align='center' >
           <Box flex={{shrink:false}} height='480px' width='full'>
             <Image fit='cover' src='https://cdn.discordapp.com/attachments/798705594717831168/842760745124233236/IMG_20210513_200400.jpg' />

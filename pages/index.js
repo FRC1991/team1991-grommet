@@ -21,6 +21,7 @@ import {
 import {FormClose, Menu} from 'grommet-icons'
 import AppBar from '../components/AppBar'
 
+
 const theme = {
   global: {
     colors: {
@@ -36,7 +37,7 @@ const theme = {
 
 export default function Home() {
     return (
-      <Grommet theme={theme} full='min' overflow='scroll'>
+      <Grommet theme={theme} overflow='scroll'>
       <Head>
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto"

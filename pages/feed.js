@@ -42,7 +42,7 @@ const theme = {
 const feed = ({posts}) => {
   console.log(posts)
     return (
-      <Grommet theme={theme} full>
+      <Grommet theme={theme}>
       <Head>
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto"

@@ -59,11 +59,9 @@ const feed = ({posts}) => {
             'vertical': 'small',
             'horizontal': 'medium'}} 
             >
-            {/* <Card width='full' background='light-1' elevation='large' flex='grow'>
-              <CardHeader pad='medium' background='light-3'>News Feed</CardHeader> */}
                 <InfiniteScroll items={posts}>
                 {(item) => (
-                <Post title={item.data.title} body={item.content} image={item.data?.thumbnail} date={item.data.dateString} description={item.data.description} author={item.data.author}/>)}
+                <Post postItem={item} />)}
                 </InfiniteScroll>
           </Grid>
           <Footer pad='medium'>
@@ -84,19 +82,19 @@ export async function getStaticProps(){
   files.forEach(file => {
     const content = fs.readFileSync(path.join(basePath, 'posts', file), 'utf-8')
     posts.push(matter(content))
-    })
-    function comparePosts(a,b){
-      var aDate = a.data.date
-      var bDate = b.data.date
-      if(aDate < bDate) return 1
-      else if (aDate > bDate) return -1
-      else return 0;
-    }
-    posts.sort(comparePosts)
-    posts.map((post) => {
-      var dateString = new Date(post.data.date*1000).toLocaleDateString()
-      post.data.dateString = dateString
-    })
+  })
+  function comparePosts(a,b){
+    var aDate = a.data.date
+    var bDate = b.data.date
+    if(aDate < bDate) return 1
+    else if (aDate > bDate) return -1
+    else return 0;
+  }
+  posts.sort(comparePosts)
+  posts.map((post) => {
+    var dateString = new Date(post.data.date*1000).toLocaleDateString()
+    post.data.dateString = dateString
+  })
     
   return {
     props: {

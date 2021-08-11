@@ -1,4 +1,5 @@
 import React from 'react'
+import {format, fromUnixTime} from 'date-fns'
 
 const theme = {
     global: {
@@ -15,6 +16,7 @@ const theme = {
 
 const Post = ({postItem}) => { 
   const {content, data} = postItem
+  const dateString = format(fromUnixTime(data.date), 'PPPp')
     return (
     <div style={{'-moz-box-shadow': '3px 3px 5px 6px #ccc',
     '-webkit-box-shadow': '3px 3px 5px 6px #ccc',
@@ -31,7 +33,7 @@ const Post = ({postItem}) => {
           'padding-left': '10px',
           'line-height': '1.2'}}>
             <h2 style={{'margin': '5px'}}>{data.title}</h2>
-            <h5 style={{'margin': '5px'}}>Published on: {data.date}</h5>
+            <h5 style={{'margin': '5px'}}>Published on: {dateString}</h5>
       </div>
       <div style={{'padding-left': '10px',
         'padding-right': '10px',

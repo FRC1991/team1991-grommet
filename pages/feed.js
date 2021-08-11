@@ -40,7 +40,6 @@ const theme = {
 };
 
 const feed = ({posts}) => {
-  console.log(posts)
     return (
       <Grommet theme={theme}>
       <Head>
@@ -90,12 +89,7 @@ export async function getStaticProps(){
     else if (aDate > bDate) return -1
     else return 0;
   }
-  posts.sort(comparePosts)
-  posts.map((post) => {
-    var dateString = new Date(post.data.date*1000).toLocaleDateString()
-    post.data.dateString = dateString
-  })
-    
+  posts.sort(comparePosts)    
   return {
     props: {
       posts: posts

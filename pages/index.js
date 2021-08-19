@@ -75,7 +75,7 @@ export default function Home() {
             </Card>
             <Footer pad='medium'>
               <Text size='small'> hi there </Text>
-              <Anchor label='oop'></Anchor>
+              <Anchor label='a test'></Anchor>
             </Footer>
           </Box>
         </Box> 

@@ -42,10 +42,9 @@ const Post = ({postItem}) => {
         <h4 style={{'margin-top': '0px', 'margin-bottom': '2px'}}>{data.description}</h4>
         <h5 style={{'margin-top': '0px', 'margin-bottom': '2px'}}>Author: {data.author}</h5>
         <div style={{'width': '95%', 'padding': '10px', 'display': 'block', 'margin-left': 'auto', 'margin-right': 'auto', }}>
-          <img style={{'max-width': '100%', 'max-height': '100%'}} src={data?.thumbnail}></img>
+          <img style={{'max-width': '100%', 'max-height': '100%', 'display': 'block', 'margin-left': 'auto', 'margin-right': 'auto', 'margin-bottom': '20px'}} src={data?.thumbnail}></img>
         </div>
-        <div>
-          {content}
+        <div dangerouslySetInnerHTML={{__html: content}}>
         </div>
       </div>
     </div>

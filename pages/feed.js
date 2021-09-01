@@ -74,7 +74,7 @@ const feed = ({posts}) => {
   </Grommet>
     )}
 
-export async function getStaticProps(){
+export async function getServerSideProps(){
   let basePath = process.cwd()
   if(process.env.NODE_ENV === 'production'){
     basePath = path.join(process.cwd(), '.next/')
@@ -87,8 +87,8 @@ export async function getStaticProps(){
     parsedContent.content = snarkdown(parsedContent.content)
     posts.push(parsedContent)
   })
-  // const timeMin = formatRFC3339(sub(new Date(), {months: 1}))
-  const timeMin = formatRFC3339(new Date())
+  const timeMin = formatRFC3339(sub(new Date(), {weeks: 2}))
+  // const timeMin = formatRFC3339(new Date())
   // const timeMin = '2021-06-10T18:20:00-04:00'
   const API_KEY = process.env.API_KEY
   const calendarId = "frc1991dragons@gmail.com"
@@ -99,7 +99,7 @@ export async function getStaticProps(){
   events.forEach( (event) => {
     const startDate = new Date(event.start.dateTime)
     const endDate = new Date(event.end.dateTime)
-    const body = `Calendar event named: ${event.summary} <br/>Starting at: ${format(startDate, 'p \'on\' PPP')}<br/>Ending at: ${format(endDate, 'p \'on\' PPP')}`
+    const body = `<b>Calendar event named:</b> ${event.summary} <br/><b>Starting at:</b> ${format(startDate, 'p \'on\' PPP')}<br/><b>Ending at:</b> ${format(endDate, 'p \'on\' PPP')}`
     const description = 'Google Calendar Event'
     const author = 'Google Calendar'
 

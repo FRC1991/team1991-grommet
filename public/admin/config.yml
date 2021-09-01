@@ -18,3 +18,4 @@ collections:
       - {label: "Featured Image", required: false, name: "thumbnail", widget: "image"}
       - {label: "Author", name: "author", widget: "string", default: "Admin"}
       - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Puppy Count", name: "puppies", widget: "number", default: 2, value_type: "int", min: 1, max: 101, step: 2}

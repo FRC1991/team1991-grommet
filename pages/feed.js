@@ -77,7 +77,7 @@ const feed = ({posts}) => {
 export async function getServerSideProps(){
   let basePath = __dirname;
   if(process.env.NODE_ENV === 'production'){
-    basePath = path.join(__dirname, '.next/')
+    basePath = path.join(__dirname, '../../');
   }
   const files = fs.readdirSync(path.join(basePath, 'posts'))
   var posts = [];

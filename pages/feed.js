@@ -74,10 +74,10 @@ const feed = ({posts}) => {
   </Grommet>
     )}
 
-export async function getServerSideProps(){
-  let basePath = __dirname;
+export async function getStaticProps(){
+  let basePath = process.cwd()
   if(process.env.NODE_ENV === 'production'){
-    basePath = path.join(__dirname, '../../chunks');
+    basePath = path.join(process.cwd(), '.next/server/chunks')
   }
   const files = fs.readdirSync(path.join(basePath, 'posts'))
   var posts = [];

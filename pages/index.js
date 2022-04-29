@@ -52,7 +52,7 @@ export default function Home() {
         <Box direction="row">
           <Box align="center">
             <Box flex={{ shrink: false }} height="500px" width="full">
-              <Image fill="horizontal" fit="cover" src="/img/DSC00361.JPG" />
+              <Image fill="horizontal" fit="cover" src="/img/DSC00361.jpg" />
             </Box>
             <Box
               width="full"

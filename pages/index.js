@@ -52,7 +52,7 @@ export default function Home() {
         <Box direction="row">
           <Box align="center">
             <Box flex={{ shrink: false }} height="500px" width="full">
-              <Image fill="horizontal" fit="cover" src="/img/DSC00361.jpg" />
+              <Image fill="horizontal" fit="cover" src="/img/dsc00361.jpg" />
             </Box>
             <Box
               width="full"
@@ -111,7 +111,7 @@ export default function Home() {
                 <CardBody direction="row" pad="medium">
                   <Box width="50%">
                     <Carousel play="5000" fill>
-                      <Image fit="cover" src="/img/DSC00361.jpg" />
+                      <Image fit="cover" src="/img/dsc00361.jpg" />
                       <Image
                         fit="cover"
                         src="/img/orangeplanetwithpurplering.png"

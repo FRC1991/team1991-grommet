@@ -68,7 +68,11 @@ const feed = ({ posts }) => {
 };
 
 export async function getServerSideProps() {
-  const files = path.resolve("./posts");
+  let basePath = process.cwd();
+  if (process.env.NODE_ENV === "production") {
+    basePath = path.join(process.cwd(), ".next/server/chunks");
+  }
+  const files = fs.readdirSync(path.join(basePath, "posts"));
   var posts = [];
   files.forEach((file) => {
     const content = fs.readFileSync(

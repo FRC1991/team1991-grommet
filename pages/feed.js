@@ -68,7 +68,7 @@ const feed = ({ posts }) => {
 };
 
 export async function getServerSideProps() {
-  var basePath = path.join(path.resolve('./public'), "posts");
+  var basePath = path.join(path.resolve('./public/posts'));
   const files = fs.readdirSync(basePath);
   var posts = [];
   files.forEach((file) => {

@@ -35,30 +35,18 @@ import {
 } from "date-fns";
 import "snarkdown";
 import snarkdown from "snarkdown";
-
-const theme = {
-  global: {
-    colors: {
-      brand: "#FF8210",
-    },
-    font: {
-      family: "Roboto",
-      size: "18px",
-      height: "20px",
-    },
-  },
-};
+import CustomFooter from "../components/CustomFooter";
 
 const feed = ({ posts }) => {
   return (
-    <Grommet theme={theme}>
+    <Grommet theme={global.theme}>
       <Head>
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto"
           rel="stylesheet"
         />
       </Head>
-      <AppBar pad="none" />
+      <AppBar/>
       <Box align="center" width="full">
         <Grid
           width="full"
@@ -73,10 +61,7 @@ const feed = ({ posts }) => {
             {(item) => <Post postItem={item} />}
           </InfiniteScroll>
         </Grid>
-        <Footer pad="medium">
-          <Text size="small"> hi there </Text>
-          <Anchor label="a test"></Anchor>
-        </Footer>
+        <CustomFooter/>
       </Box>
     </Grommet>
   );

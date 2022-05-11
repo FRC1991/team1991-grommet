@@ -24,23 +24,11 @@ import { FormClose, Menu } from "grommet-icons";
 import AppBar from "../components/AppBar";
 import CustomFooter from "../components/CustomFooter";
 
-const theme = {
-  global: {
-    colors: {
-      brand: "#FF8210",
-      "accent-1": "#ff9030",
-    },
-    font: {
-      family: "Roboto",
-      size: "18px",
-      height: "20px",
-    },
-  },
-};
+
 
 export default function Home() {
   return (
-    <Grommet theme={theme} overflow="scroll">
+    <Grommet theme={global.theme} overflow="scroll">
       <Head>
         <link
           href="https://fonts.googleapis.com/css2?family=Roboto"
@@ -103,13 +91,12 @@ export default function Home() {
                 width="full"
                 background="light-1"
                 elevation="large"
-                flex="grow"
               >
                 <CardHeader pad="medium" background="light-3">
                   About Us
                 </CardHeader>
                 <CardBody direction="row" pad="medium">
-                  <Box width="50%">
+                  <Box width="50%" >
                     <Carousel play="5000" fill>
                       <Image fit="cover" src="/img/dsc00361.jpg" />
                       <Image
@@ -120,7 +107,7 @@ export default function Home() {
                       <Image fit="cover" src="/img/starwars-team-photo.png" />
                     </Carousel>
                   </Box>
-                  <Box width="50%">
+                  <Box width="50%" direction="column" overflow="auto">
                     <Paragraph
                       fill
                       margin={{

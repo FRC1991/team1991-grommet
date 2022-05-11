@@ -1,8 +1,14 @@
-import { Anchor, Box, Button, Heading, Nav, Text } from "grommet";
+import { Anchor, Box, Button, Grommet, Heading, Nav, ResponsiveContext, Text } from "grommet";
 
 import { Menu } from "grommet-icons";
+import React from "react";
 
-const AppBar = (props) => (
+const AppBar = (props) => {
+
+  const size = React.useContext(ResponsiveContext)
+  console.log(size)
+  return(
+  <Grommet theme={global.theme}>
   <Box
     tag="header"
     flex={{ shrink: false }}
@@ -78,6 +84,7 @@ const AppBar = (props) => (
       </Nav>
     </Nav>
   </Box>
-);
-
+  </Grommet>
+  )
+}
 export default AppBar;

@@ -173,13 +173,7 @@ const sponsors = (props) => {
 };
 
 export async function getStaticProps() {
-  let basePath = process.cwd();
-  if (process.env.NODE_ENV === "production") {
-    basePath = path.join(process.cwd(), ".next/server/chunks/static");
-  }
-  else{
-    basePath = path.join(process.cwd(), "public");
-  }
+  let basePath = path.resolve("./public");
   let images = {};
   images.titleSponsors = fs.readdirSync(
     path.join(basePath, "sponsors", "titleSponsors")

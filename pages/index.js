@@ -19,6 +19,7 @@ import {
   Text,
   Paragraph,
   Carousel,
+  Stack,
 } from "grommet";
 import { FormClose, Menu } from "grommet-icons";
 import AppBar from "../components/AppBar";
@@ -36,11 +37,26 @@ export default function Home() {
         />
       </Head>
       <Box>
-        <AppBar />
+        <AppBar margin={{
+          top: "xsmall",
+          bottom: "xxxsmall",
+          left: "0px",
+          right: "0px",
+        }} />
         <Box direction="row">
           <Box align="center">
-            <Box flex={{ shrink: false }} height="500px" width="full">
-              <Image fill="horizontal" fit="cover" src="/img/dsc00361.jpg" />
+            <Box background='light-1' overflow='auto' flex={{ shrink: true }} height="600px" width="full">
+              <Text weight='bolder' color='brand' style={{
+                // position: 'absolute',
+                "white-space": "pre"
+              }} alignSelf='center' size='4xl' >This is FRC 4-H Team 1991</Text>
+              <Text style={{
+                // position: 'absolute',
+                "white-space": "pre"
+              }} margin={{
+                bottom: 'small'
+              }} size='xlarge' alignSelf='center' >We are the Dragons.  </Text>
+              <Image fill="horizontal" fit="cover" src="/img/dsc00361.jpg"/>
             </Box>
             <Box
               width="full"

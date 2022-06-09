@@ -38,6 +38,8 @@ import snarkdown from "snarkdown";
 import CustomFooter from "../components/CustomFooter";
 
 const feed = ({ posts }) => {
+  const size = React.useContext(ResponsiveContext);
+
   return (
     <Grommet theme={global.theme}>
       <Head>
@@ -46,7 +48,15 @@ const feed = ({ posts }) => {
           rel="stylesheet"
         />
       </Head>
-      <AppBar/>
+      <AppBar
+          margin={{
+            top: "xsmall",
+            bottom: "xxxsmall",
+            left: "0px",
+            right: "0px",
+          }}
+          size = {size}
+        />
       <Box align="center" width="full">
         <Grid
           width="full"

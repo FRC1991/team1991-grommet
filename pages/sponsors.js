@@ -7,14 +7,16 @@ import {
   Grommet,
   Text,
   Carousel,
+  ResponsiveContext
 } from "grommet";
+import React from "react";
 import Head from "next/dist/shared/lib/head";
 import AppBar from "../components/AppBar";
 import * as fs from "fs";
 import * as path from "path";
 
 const sponsors = (props) => {
-  console.log(props);
+  const size = React.useContext(ResponsiveContext);
   return (
     <Grommet theme={global.theme}>
       <Head>
@@ -23,7 +25,15 @@ const sponsors = (props) => {
           rel="stylesheet"
         />
       </Head>
-      <AppBar />
+      <AppBar
+          margin={{
+            top: "xsmall",
+            bottom: "xxxsmall",
+            left: "0px",
+            right: "0px",
+          }}
+          size = {size}
+        />
       <Card
         margin={{
           top: "medium",
@@ -57,11 +67,10 @@ const sponsors = (props) => {
             <CardBody pad="large">
               <Carousel fill wrap play="3000">
                 {props.titleSponsors.map((image) => (
-                  <Box align='center'><Image
+                  <Image
                     fit="contain"
                     src={image}
                   />
-                  </Box>
                 ))}
               </Carousel>
             </CardBody>
@@ -82,11 +91,10 @@ const sponsors = (props) => {
             <CardBody pad="large">
               <Carousel fill wrap play="3000">
                 {props.platinumSponsors.map((image) => (
-                  <Box align='center'><Image
+                  <Image
                   fit="contain"
                   src={image}
                 />
-                </Box>
                 ))}
               </Carousel>
             </CardBody>
@@ -107,11 +115,10 @@ const sponsors = (props) => {
             <CardBody pad="large">
               <Carousel fill wrap play="3000">
                 {props.goldSponsors.map((image) => (
-                  <Box align='center'><Image
+                  <Image
                   fit="contain"
                   src={image}
                 />
-                </Box>
                 ))}
               </Carousel>
             </CardBody>
@@ -132,11 +139,11 @@ const sponsors = (props) => {
             <CardBody pad="large">
               <Carousel fill wrap play="3000">
                 {props.silverSponsors.map((image) => (
-                  <Box align='center'><Image
+                  <Image
                   fit="contain"
                   src={image}
+                  
                 />
-                </Box>
                 ))}
               </Carousel>
             </CardBody>
@@ -157,11 +164,10 @@ const sponsors = (props) => {
             <CardBody pad="large">
             <Carousel fill wrap play="3000">
                 {props.bronzeSponsors.map((image) => (
-                  <Box align='center'><Image
+                  <Image
                     fit="contain"
                     src={image}
                   />
-                  </Box>
                 ))}
               </Carousel>
             </CardBody>

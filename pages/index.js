@@ -25,9 +25,172 @@ import { FormClose, Menu } from "grommet-icons";
 import AppBar from "../components/AppBar";
 import CustomFooter from "../components/CustomFooter";
 
-
-
 export default function Home() {
+
+  const size = React.useContext(ResponsiveContext);
+  var aboutUsSection = size!=='small' ? <Card
+  margin="small"
+  width="full"
+  background="light-1"
+  elevation="large"
+>
+  <CardHeader pad="medium" background="light-3">
+    About Us
+  </CardHeader>
+  <CardBody direction="row" pad="medium">
+    <Box width="50%">
+      <Carousel play="5000" fill>
+        <Image fit="cover" src="/img/dsc00361.jpg" />
+        <Image
+          fit="cover"
+          src="/img/orangeplanetwithpurplering.png"
+        />
+        <Image fit="cover" src="/img/team.jpg" />
+        <Image fit="cover" src="/img/starwars-team-photo.png" />
+      </Carousel>
+    </Box>
+    <Box width="50%" direction="column" overflow="auto">
+      <Paragraph
+        fill
+        margin={{
+          top: "small",
+          bottom: "xsmall",
+          horizontal: "medium",
+        }}
+      >
+        Team 1991, The Dragons, is a student run high school team
+        which was founded in 2007 by a group of students, teachers
+        and mentors who wanted to represent their school's
+        engineering focus in a competitive environment.
+      </Paragraph>
+      <Paragraph
+        fill
+        margin={{
+          vertical: "xsmall",
+          horizontal: "medium",
+        }}
+      >
+        Participation in the team gives students an opportunity to
+        learn about engineering and technology through hands on
+        experience. Since the team operates like a business,
+        students acquire many professional skills, such as
+        managing a budget, making presentations and planning our
+        build season. As an extracurricular program, the team
+        allows students to apply concepts learned in school as
+        well as develop new skills thanks to various workshops
+        taught by our mentors. In the past years, the students
+        were able to take advantage of the SolidWorks, LabView,
+        Welding and Electronics classes taught by our mentors.
+      </Paragraph>
+      <Paragraph
+        fill
+        margin={{
+          vertical: "xsmall",
+          horizontal: "medium",
+        }}
+      >
+        Each year, the team participates in the F.I.R.S.T.
+        Robotics Competition which F.I.R.S.T. calls as the
+        "Varsity Sport for the Mind™". The teams are given only
+        six weeks to design, construct and program a robot which
+        will compete against other teams in regional and national
+        events. This closely mimics the real life challenges
+        engineers face when working on the projects.
+      </Paragraph>
+      <Paragraph
+        fill
+        margin={{
+          vertical: "xsmall",
+          horizontal: "medium",
+        }}
+      >
+        The UHSSE 4-H Robotics Team is a project of the UConn 4-H
+        Program.
+      </Paragraph>
+    </Box>
+  </CardBody>
+</Card> : <Card
+  margin="small"
+  width="full"
+  background="light-1"
+  elevation="large"
+>
+  <CardHeader pad="medium" background="light-3">
+    About Us
+  </CardHeader>
+  <CardBody direction="column" pad="medium">
+    <Box margin='xsmall'>
+      <Carousel play="5000" fill>
+        <Image fit="cover" src="/img/dsc00361.jpg" />
+        <Image
+          fit="cover"
+          src="/img/orangeplanetwithpurplering.png"
+        />
+        <Image fit="cover" src="/img/team.jpg" />
+        <Image fit="cover" src="/img/starwars-team-photo.png" />
+      </Carousel>
+    </Box>
+    <Box direction="column" overflow="auto">
+      <Paragraph
+        fill
+        margin={{
+          top: "small",
+          bottom: "xsmall",
+          horizontal: "medium",
+        }}
+      >
+        Team 1991, The Dragons, is a student-run high school robotics team
+        We were founded in 2007 by a group of students, teachers
+        and mentors who wanted to represent their school's
+        engineering focus in a competitive environment.
+      </Paragraph>
+      <Paragraph
+        fill
+        margin={{
+          vertical: "xsmall",
+          horizontal: "medium",
+        }}
+      >
+        Participating in the team gives students an opportunity to
+        learn about engineering and technology through hands-on
+        experience. Since the team operates like a business,
+        students acquire many professional skills, such as
+        managing a budget, making presentations and planning our
+        build season. As an extracurricular program, the team
+        allows students to apply concepts learned in school as
+        well as develop new skills thanks to various workshops
+        taught by our mentors and expereinced students. Over the years, our students
+        were able to take advantage of the SolidWorks, LabView, Java/WPILib,
+        Welding and Electronics classes.
+      </Paragraph>
+      <Paragraph
+        fill
+        margin={{
+          vertical: "xsmall",
+          horizontal: "medium",
+        }}
+      >
+        Each year, the team participates in the FIRST
+        Robotics Competition which FIRST. calls as the
+        "Varsity Sport for the Mind™". The teams are given only
+        six weeks to design, construct and program a robot which
+        will compete against other teams in regional and national
+        events. This closely mimics the real life challenges
+        engineers face when working on the projects.
+      </Paragraph>
+      <Paragraph
+        fill
+        margin={{
+          vertical: "xsmall",
+          horizontal: "medium",
+        }}
+      >
+        The UHSSE 4-H Robotics Team is a project of the UConn 4-H
+        Program.
+      </Paragraph>
+    </Box>
+  </CardBody>
+</Card>
   return (
     <Grommet theme={global.theme} overflow="scroll">
       <Head>
@@ -37,26 +200,39 @@ export default function Home() {
         />
       </Head>
       <Box>
-        <AppBar margin={{
-          top: "xsmall",
-          bottom: "xxxsmall",
-          left: "0px",
-          right: "0px",
-        }} />
+        <AppBar
+          margin={{
+            top: "xsmall",
+            bottom: "xxxsmall",
+            left: "0px",
+            right: "0px",
+          }}
+          size = {size}
+        />
         <Box direction="row">
           <Box align="center">
-            <Box background='light-1' overflow='auto' flex={{ shrink: true }} height="600px" width="full">
-              <Text weight='bolder' color='brand' style={{
-                // position: 'absolute',
-                "white-space": "pre"
-              }} alignSelf='center' size='4xl' >This is FRC 4-H Team 1991</Text>
-              <Text style={{
-                // position: 'absolute',
-                "white-space": "pre"
-              }} margin={{
-                bottom: 'small'
-              }} size='xlarge' alignSelf='center' >We are the Dragons.  </Text>
-              <Image fill="horizontal" fit="cover" src="/img/dsc00361.jpg"/>
+            <Box
+              background="light-1"
+              overflow="scroll"
+              flex={{ shrink: true }}
+              height="600px"
+              width="full"
+            >
+              <Text margin={{
+                top: 'medium'
+              }} weight="bolder" color="brand" alignSelf="center" size={size=='small' ? 'xlarge' : '4xl'}>
+                This is FRC 4-H Team 1991
+              </Text>
+              <Text
+                margin={{
+                  bottom: size=='small' ? 'medium' : 'small',
+                }}
+                size={size=='small' ? 'large' : 'xlarge'}
+                alignSelf="center"
+              >
+                We are the Dragons.
+              </Text>
+              <Image fill="horizontal" fit="cover" src="/img/dsc00361.jpg" />
             </Box>
             <Box
               width="full"
@@ -102,89 +278,8 @@ export default function Home() {
                   </Box>
                 </CardBody>
               </Card>
-              <Card
-                margin="small"
-                width="full"
-                background="light-1"
-                elevation="large"
-              >
-                <CardHeader pad="medium" background="light-3">
-                  About Us
-                </CardHeader>
-                <CardBody direction="row" pad="medium">
-                  <Box width="50%" >
-                    <Carousel play="5000" fill>
-                      <Image fit="cover" src="/img/dsc00361.jpg" />
-                      <Image
-                        fit="cover"
-                        src="/img/orangeplanetwithpurplering.png"
-                      />
-                      <Image fit="cover" src="/img/team.jpg" />
-                      <Image fit="cover" src="/img/starwars-team-photo.png" />
-                    </Carousel>
-                  </Box>
-                  <Box width="50%" direction="column" overflow="auto">
-                    <Paragraph
-                      fill
-                      margin={{
-                        top: "small",
-                        bottom: "xsmall",
-                        horizontal: "medium",
-                      }}
-                    >
-                      Team 1991, The Dragons, is a student run high school team
-                      which was founded in 2007 by a group of students, teachers
-                      and mentors who wanted to represent their school's
-                      engineering focus in a competitive environment.
-                    </Paragraph>
-                    <Paragraph
-                      fill
-                      margin={{
-                        vertical: "xsmall",
-                        horizontal: "medium",
-                      }}
-                    >
-                      Participation in the team gives students an opportunity to
-                      learn about engineering and technology through hands on
-                      experience. Since the team operates like a business,
-                      students acquire many professional skills, such as
-                      managing a budget, making presentations and planning our
-                      build season. As an extracurricular program, the team
-                      allows students to apply concepts learned in school as
-                      well as develop new skills thanks to various workshops
-                      taught by our mentors. In the past years, the students
-                      were able to take advantage of the SolidWorks, LabView,
-                      Welding and Electronics classes taught by our mentors.
-                    </Paragraph>
-                    <Paragraph
-                      fill
-                      margin={{
-                        vertical: "xsmall",
-                        horizontal: "medium",
-                      }}
-                    >
-                      Each year, the team participates in the F.I.R.S.T.
-                      Robotics Competition which F.I.R.S.T. calls as the
-                      "Varsity Sport for the Mind™". The teams are given only
-                      six weeks to design, construct and program a robot which
-                      will compete against other teams in regional and national
-                      events. This closely mimics the real life challenges
-                      engineers face when working on the projects.
-                    </Paragraph>
-                    <Paragraph
-                      fill
-                      margin={{
-                        vertical: "xsmall",
-                        horizontal: "medium",
-                      }}
-                    >
-                      The UHSSE 4-H Robotics Team is a project of the UConn 4-H
-                      Program.
-                    </Paragraph>
-                  </Box>
-                </CardBody>
-              </Card>
-              <CustomFooter />
+              {aboutUsSection}
+              <CustomFooter size={size} />
             </Box>
           </Box>
         </Box>

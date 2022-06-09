@@ -111,7 +111,6 @@ export default function Home() {
   </CardBody>
 </Card> : <Card
   margin="small"
-  width="full"
   background="light-1"
   elevation="large"
 >
@@ -119,17 +118,6 @@ export default function Home() {
     About Us
   </CardHeader>
   <CardBody direction="column" pad="medium">
-    <Box margin='xsmall'>
-      <Carousel play="5000" fill>
-        <Image fit="cover" src="/img/dsc00361.jpg" />
-        <Image
-          fit="cover"
-          src="/img/orangeplanetwithpurplering.png"
-        />
-        <Image fit="cover" src="/img/team.jpg" />
-        <Image fit="cover" src="/img/starwars-team-photo.png" />
-      </Carousel>
-    </Box>
     <Box direction="column" overflow="auto">
       <Paragraph
         fill
@@ -189,6 +177,17 @@ export default function Home() {
         Program.
       </Paragraph>
     </Box>
+    <Box margin='xsmall'>
+      <Carousel play="5000" fill>
+        <Image fit="cover" src="/img/dsc00361.jpg" />
+        <Image
+          fit="cover"
+          src="/img/orangeplanetwithpurplering.png"
+        />
+        <Image fit="cover" src="/img/team.jpg" />
+        <Image fit="cover" src="/img/starwars-team-photo.png" />
+      </Carousel>
+    </Box>
   </CardBody>
 </Card>
   return (
@@ -199,7 +198,6 @@ export default function Home() {
           rel="stylesheet"
         />
       </Head>
-      <Box>
         <AppBar
           margin={{
             top: "xsmall",
@@ -209,8 +207,6 @@ export default function Home() {
           }}
           size = {size}
         />
-        <Box direction="row">
-          <Box align="center">
             <Box
               background="light-1"
               overflow="scroll"
@@ -243,7 +239,6 @@ export default function Home() {
             >
               <Card
                 margin="small"
-                width="full"
                 background="light-1"
                 elevation="large"
                 flex="grow"
@@ -281,9 +276,6 @@ export default function Home() {
               {aboutUsSection}
               <CustomFooter size={size} />
             </Box>
-          </Box>
-        </Box>
-      </Box>
     </Grommet>
   );
 }

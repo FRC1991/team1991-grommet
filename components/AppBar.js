@@ -118,7 +118,7 @@ const AppBar = (props) => {
     </Nav>
     <Collapsible open={sidebarVisible}>
 <Box
-  width='medium'
+  width='fill'
   background='light-2'
   elevation="medium"
   align='center'

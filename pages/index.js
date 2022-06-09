@@ -28,7 +28,83 @@ import CustomFooter from "../components/CustomFooter";
 export default function Home() {
 
   const size = React.useContext(ResponsiveContext);
-  var aboutUsSection = size!=='small' ? <Card
+  var aboutUsSection = size=='medium' || size=='small' ? <Card
+  margin="small"
+  background="light-1"
+  elevation="large"
+>
+  <CardHeader pad="medium" background="light-3">
+    About Us
+  </CardHeader>
+  <CardBody direction="column" pad="medium">
+      <Paragraph
+        fill
+        margin={{
+          top: "small",
+          bottom: "xsmall",
+          horizontal: "medium",
+        }}
+      >
+        Team 1991, The Dragons, is a student-run high school robotics team
+        We were founded in 2007 by a group of students, teachers
+        and mentors who wanted to represent their school's
+        engineering focus in a competitive environment.
+      </Paragraph>
+      <Paragraph
+        fill
+        margin={{
+          vertical: "xsmall",
+          horizontal: "medium",
+        }}
+      >
+        Participating in the team gives students an opportunity to
+        learn about engineering and technology through hands-on
+        experience. Since the team operates like a business,
+        students acquire many professional skills, such as
+        managing a budget, making presentations and planning our
+        build season. As an extracurricular program, the team
+        allows students to apply concepts learned in school as
+        well as develop new skills thanks to various workshops
+        taught by our mentors and expereinced students. Over the years, our students
+        were able to take advantage of the SolidWorks, LabView, Java/WPILib,
+        Welding and Electronics classes.
+      </Paragraph>
+      <Paragraph
+        fill
+        margin={{
+          vertical: "xsmall",
+          horizontal: "medium",
+        }}
+      >
+        Each year, the team participates in the FIRST
+        Robotics Competition which FIRST. calls as the
+        "Varsity Sport for the Mind™". The teams are given only
+        six weeks to design, construct and program a robot which
+        will compete against other teams in regional and national
+        events. This closely mimics the real life challenges
+        engineers face when working on the projects.
+      </Paragraph>
+      <Paragraph
+        fill
+        margin={{
+          vertical: "xsmall",
+          horizontal: "medium",
+        }}
+      >
+        The UHSSE 4-H Robotics Team is a project of the UConn 4-H
+        Program.
+      </Paragraph>
+      <Carousel wrap height='medium' play="5000" >
+        <Image fit="contain" src="/img/dsc00361.jpg" />
+        <Image
+          fit="contain"
+          src="/img/orangeplanetwithpurplering.png"
+        />
+        <Image fit="contain" src="/img/team.jpg" />
+        <Image fit="contain" src="/img/starwars-team-photo.png" />
+      </Carousel>
+  </CardBody>
+</Card> : <Card
   margin="small"
   width="full"
   background="light-1"
@@ -109,83 +185,7 @@ export default function Home() {
       </Paragraph>
     </Box>
   </CardBody>
-</Card> : <Card
-  margin="small"
-  background="light-1"
-  elevation="large"
->
-  <CardHeader pad="medium" background="light-3">
-    About Us
-  </CardHeader>
-  <CardBody direction="column" pad="medium">
-      <Paragraph
-        fill
-        margin={{
-          top: "small",
-          bottom: "xsmall",
-          horizontal: "medium",
-        }}
-      >
-        Team 1991, The Dragons, is a student-run high school robotics team
-        We were founded in 2007 by a group of students, teachers
-        and mentors who wanted to represent their school's
-        engineering focus in a competitive environment.
-      </Paragraph>
-      <Paragraph
-        fill
-        margin={{
-          vertical: "xsmall",
-          horizontal: "medium",
-        }}
-      >
-        Participating in the team gives students an opportunity to
-        learn about engineering and technology through hands-on
-        experience. Since the team operates like a business,
-        students acquire many professional skills, such as
-        managing a budget, making presentations and planning our
-        build season. As an extracurricular program, the team
-        allows students to apply concepts learned in school as
-        well as develop new skills thanks to various workshops
-        taught by our mentors and expereinced students. Over the years, our students
-        were able to take advantage of the SolidWorks, LabView, Java/WPILib,
-        Welding and Electronics classes.
-      </Paragraph>
-      <Paragraph
-        fill
-        margin={{
-          vertical: "xsmall",
-          horizontal: "medium",
-        }}
-      >
-        Each year, the team participates in the FIRST
-        Robotics Competition which FIRST. calls as the
-        "Varsity Sport for the Mind™". The teams are given only
-        six weeks to design, construct and program a robot which
-        will compete against other teams in regional and national
-        events. This closely mimics the real life challenges
-        engineers face when working on the projects.
-      </Paragraph>
-      <Paragraph
-        fill
-        margin={{
-          vertical: "xsmall",
-          horizontal: "medium",
-        }}
-      >
-        The UHSSE 4-H Robotics Team is a project of the UConn 4-H
-        Program.
-      </Paragraph>
-      <Carousel wrap height='medium' play="5000" >
-        <Image fit="contain" src="/img/dsc00361.jpg" />
-        <Image
-          fit="contain"
-          src="/img/orangeplanetwithpurplering.png"
-        />
-        <Image fit="contain" src="/img/team.jpg" />
-        <Image fit="contain" src="/img/starwars-team-photo.png" />
-      </Carousel>
-  </CardBody>
-</Card>
+</Card> 
   return (
     <Grommet theme={global.theme} overflow="scroll">
       <Head>
@@ -212,14 +212,14 @@ export default function Home() {
             >
               <Text margin={{
                 top: 'medium'
-              }} weight="bolder" color="brand" alignSelf="center" size={size=='small' ? 'xlarge' : '4xl'}>
+              }} weight="bolder" color="brand" alignSelf="center" size={size=='medium' || size == 'small' ? 'xlarge' : '4xl'}>
                 This is FRC 4-H Team 1991
               </Text>
               <Text
                 margin={{
-                  bottom: size=='small' ? 'medium' : 'small',
+                  bottom: size=='medium' || size=='small' ? 'medium' : 'medium',
                 }}
-                size={size=='small' ? 'large' : 'xlarge'}
+                size={size=='medium' || size=='small' ? 'large' : 'xlarge'}
                 alignSelf="center"
               >
                 We are the Dragons.

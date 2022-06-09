@@ -7,9 +7,113 @@ const AppBar = (props) => {
 
   const [sidebarVisible, setSidebarVisible] = React.useState(false);
 
-  if(props.size !== 'small') {
+  if(props.size == 'medium' || props.size == 'small') {
   return(
-  <Grommet theme={global.theme}>
+    <Grommet theme={global.theme}>
+    <Nav
+      tag="header"
+      flex={{ shrink: false }}
+      direction="row"
+      height="60px"
+      justify="between"
+      background="light-1"
+      pad={{ left: "medium", right: "none", vertical: "small" }}
+      style={{ zIndex: 1 }}
+      overflow="hidden"
+      {...props}
+    >
+        
+        <Anchor alignSelf="center" icon={<Menu />} onClick={()=> {setSidebarVisible(!sidebarVisible)}} />
+        <Heading
+          color="brand"
+          level="2"
+          margin="medium"
+          onClick={() => {
+            window.location.href = window.location.origin;
+          }}
+          alignSelf="center"
+        >
+          Team 1991
+        </Heading>
+      </Nav>
+      <Collapsible open={sidebarVisible}>
+  <Box
+    width='fill'
+    background='light-2'
+    elevation="medium"
+    align='center'
+    justify='center'
+    direction="column"
+    pad="medium"
+    >
+      <Anchor
+          margin={{
+            top: "xsmall",
+            bottom: "xsmall",
+          }}
+          label="Home"
+          onClick={() => {
+            window.location.href = window.location.origin;
+          }}
+          color="dark-1"
+          size="medium"
+        />
+        <Anchor
+          margin={{
+            top: "none",
+            bottom: "xsmall",
+          }}
+          label="Our Sponsors"
+          href="sponsors"
+          color="dark-1"
+          size="medium"
+        />
+        <Anchor margin={{
+          top: "none",
+          bottom: "xsmall",
+        }} label="Creations" href="creations" color="dark-1" size="medium" />
+        <Anchor margin={{
+          top: "none",
+          bottom: "xsmall",
+        }} label="Media" href="media" color="dark-1" size="medium" />
+        <Anchor margin={{
+          top: "none",
+          bottom: "xsmall",
+        }} label="Awards" href="awards" color="dark-1" size="medium" />
+        <Box margin='small' background="#ff9030" round="medium">
+          <Anchor
+            label="News Feed"
+            margin={{
+              vertical: "xsmall",
+              horizontal: "small",
+            }}
+            href="feed"
+            color="dark-1"
+            size="medium"
+          />
+        </Box>
+        <Box margin='small' background="#ff9030" round="medium">
+          <Anchor
+            label="Donations"
+            margin={{
+              vertical: "xsmall",
+              horizontal: "small",
+            }}
+            href="https://www.paypal.com/donate?hosted_button_id=5MQSBAZGVDCMU"
+            color="dark-1"
+            size="medium"
+          />
+        </Box>
+    </Box>
+    </Collapsible>
+    </Grommet>
+  )
+}
+  else {
+    return (
+    
+
+      <Grommet theme={global.theme}>
   <Box
     tag="header"
     flex={{ shrink: false }}
@@ -86,107 +190,9 @@ const AppBar = (props) => {
     </Nav>
   </Box>
   </Grommet>
-  )
-}
-  else {
-    return (<Grommet theme={global.theme}>
-  <Nav
-    tag="header"
-    flex={{ shrink: false }}
-    direction="row"
-    height="60px"
-    justify="between"
-    background="light-1"
-    pad={{ left: "medium", right: "none", vertical: "small" }}
-    style={{ zIndex: 1 }}
-    overflow="hidden"
-    {...props}
-  >
-      
-      <Anchor alignSelf="center" icon={<Menu />} onClick={()=> {setSidebarVisible(!sidebarVisible)}} />
-      <Heading
-        color="brand"
-        level="2"
-        margin="medium"
-        onClick={() => {
-          window.location.href = window.location.origin;
-        }}
-        alignSelf="center"
-      >
-        Team 1991
-      </Heading>
-    </Nav>
-    <Collapsible open={sidebarVisible}>
-<Box
-  width='fill'
-  background='light-2'
-  elevation="medium"
-  align='center'
-  justify='center'
-  direction="column"
-  pad="medium"
-  >
-    <Anchor
-        margin={{
-          top: "xsmall",
-          bottom: "xsmall",
-        }}
-        label="Home"
-        onClick={() => {
-          window.location.href = window.location.origin;
-        }}
-        color="dark-1"
-        size="medium"
-      />
-      <Anchor
-        margin={{
-          top: "none",
-          bottom: "xsmall",
-        }}
-        label="Our Sponsors"
-        href="sponsors"
-        color="dark-1"
-        size="medium"
-      />
-      <Anchor margin={{
-        top: "none",
-        bottom: "xsmall",
-      }} label="Creations" href="creations" color="dark-1" size="medium" />
-      <Anchor margin={{
-        top: "none",
-        bottom: "xsmall",
-      }} label="Media" href="media" color="dark-1" size="medium" />
-      <Anchor margin={{
-        top: "none",
-        bottom: "xsmall",
-      }} label="Awards" href="awards" color="dark-1" size="medium" />
-      <Box margin='small' background="#ff9030" round="medium">
-        <Anchor
-          label="News Feed"
-          margin={{
-            vertical: "xsmall",
-            horizontal: "small",
-          }}
-          href="feed"
-          color="dark-1"
-          size="medium"
-        />
-      </Box>
-      <Box margin='small' background="#ff9030" round="medium">
-        <Anchor
-          label="Donations"
-          margin={{
-            vertical: "xsmall",
-            horizontal: "small",
-          }}
-          href="https://www.paypal.com/donate?hosted_button_id=5MQSBAZGVDCMU"
-          color="dark-1"
-          size="medium"
-        />
-      </Box>
-  </Box>
-  </Collapsible>
-  </Grommet>)
+    
+    
+    )
 }
 }
 export default AppBar;

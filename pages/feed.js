@@ -49,14 +49,14 @@ const feed = ({ posts }) => {
         />
       </Head>
       <AppBar
-          margin={{
-            top: "xsmall",
-            bottom: "xxxsmall",
-            left: "0px",
-            right: "0px",
-          }}
-          size = {size}
-        />
+        margin={{
+          top: "xsmall",
+          bottom: "xxxsmall",
+          left: "0px",
+          right: "0px",
+        }}
+        size={size}
+      />
       <Box align="center" width="full">
         <Grid
           width="full"
@@ -71,7 +71,7 @@ const feed = ({ posts }) => {
             {(item) => <Post postItem={item} />}
           </InfiniteScroll>
         </Grid>
-        <CustomFooter/>
+        <CustomFooter />
       </Box>
     </Grommet>
   );

@@ -39,7 +39,7 @@ export default function Home() {
   </CardHeader>
   <CardBody direction="row" pad="medium">
     <Box width="50%">
-      <Carousel play="5000" fill>
+      <Carousel wrap play="5000" fill>
         <Image fit="cover" src="/img/dsc00361.jpg" />
         <Image
           fit="cover"
@@ -118,7 +118,6 @@ export default function Home() {
     About Us
   </CardHeader>
   <CardBody direction="column" pad="medium">
-    <Box direction="column" overflow="auto">
       <Paragraph
         fill
         margin={{
@@ -176,18 +175,15 @@ export default function Home() {
         The UHSSE 4-H Robotics Team is a project of the UConn 4-H
         Program.
       </Paragraph>
-    </Box>
-    <Box margin='xsmall'>
-      <Carousel play="5000" fill>
-        <Image fit="cover" src="/img/dsc00361.jpg" />
+      <Carousel wrap height='medium' play="5000" >
+        <Image fit="contain" src="/img/dsc00361.jpg" />
         <Image
-          fit="cover"
+          fit="contain"
           src="/img/orangeplanetwithpurplering.png"
         />
-        <Image fit="cover" src="/img/team.jpg" />
-        <Image fit="cover" src="/img/starwars-team-photo.png" />
+        <Image fit="contain" src="/img/team.jpg" />
+        <Image fit="contain" src="/img/starwars-team-photo.png" />
       </Carousel>
-    </Box>
   </CardBody>
 </Card>
   return (

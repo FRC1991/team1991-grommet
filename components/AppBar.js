@@ -116,7 +116,8 @@ const AppBar = (props) => {
           justify="between"
           background="light-1"
           pad={{ left: "medium", right: "none", vertical: "small" }}
-          style={{ zIndex: 1 }}
+          style={{ zIndex: 2, position: "fixed" }}
+          width="full"
           overflow="hidden"
           {...props}
         >
@@ -124,6 +125,11 @@ const AppBar = (props) => {
             alignSelf="center"
             icon={<Menu />}
             onClick={() => {
+              window.scrollTo({
+                top: window.screenTop,
+                left: 0,
+                behavior: 'smooth'
+              });
               setSidebarVisible(!sidebarVisible);
             }}
           />
@@ -139,8 +145,9 @@ const AppBar = (props) => {
             Team 1991
           </Heading>
         </Nav>
-        <Collapsible open={sidebarVisible}>
+        <Collapsible  open={sidebarVisible}>
           <Box
+            margin={{top: "60px"}}
             width="fill"
             background="light-2"
             elevation="medium"
@@ -201,7 +208,7 @@ const AppBar = (props) => {
               color="dark-1"
               size="medium"
             />
-            <Box margin="small" background="#ff9030" round="medium">
+            <Box  margin="small" background="#ff9030" round="medium">
               <Anchor
                 label="News Feed"
                 margin={{

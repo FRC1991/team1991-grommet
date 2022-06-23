@@ -179,7 +179,6 @@ export default function Home() {
       </Head>
       <AppBar
         margin={{
-          top: "xsmall",
           bottom: "xxxsmall",
           left: "0px",
           right: "0px",
@@ -190,6 +189,7 @@ export default function Home() {
         background="light-1"
         flex={{ shrink: true }}
         height="600px"
+        margin={size == "small" ? {top: "60px"} : "0px"}
         width="full"
       >
         <Text

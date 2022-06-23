@@ -27,7 +27,6 @@ const sponsors = (props) => {
       </Head>
       <AppBar
         margin={{
-          top: "xsmall",
           bottom: "xxxsmall",
           left: "0px",
           right: "0px",
@@ -36,7 +35,7 @@ const sponsors = (props) => {
       />
       <Card
         margin={{
-          top: "medium",
+          top: "72px",
           bottom: "medium",
           left: "large",
           right: "large",

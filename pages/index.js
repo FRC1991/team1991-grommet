@@ -29,7 +29,7 @@ export default function Home() {
   const size = React.useContext(ResponsiveContext);
   var aboutUsSection =
     size !== "small" ? (
-      <Card margin="small" width="full" background="light-1" elevation="large">
+      <Card margin="small" background="light-1" elevation="large">
         <CardHeader pad="medium" background="light-3">
           About Us
         </CardHeader>
@@ -81,8 +81,8 @@ export default function Home() {
                 horizontal: "medium",
               }}
             >
-              Each year, the team participates in the F.I.R.S.T. Robotics
-              Competition which F.I.R.S.T. calls as the "Varsity Sport for the
+              Each year, the team participates in the FIRST Robotics
+              Competition which FIRST calls as the "Varsity Sport for the
               Mind™". The teams are given only six weeks to design, construct
               and program a robot which will compete against other teams in
               regional and national events. This closely mimics the real life

@@ -63,10 +63,15 @@ const sponsors = (props) => {
             <CardHeader pad="medium" background="accent-1">
               <Text weight="bolder">Title Sponsors</Text>
             </CardHeader>
-            <CardBody pad="large">
+            <CardBody pad={{
+              top: "small",
+              bottom: "small",
+              left: "medium",
+              right: "medium",
+            }}>
               <Carousel fill wrap play="3000">
                 {props.titleSponsors.map((image) => (
-                  <Image fit="contain" src={image} />
+                  <Image margin='large' fit="contain" src={image} />
                 ))}
               </Carousel>
             </CardBody>
@@ -84,10 +89,10 @@ const sponsors = (props) => {
             <CardHeader pad="medium" background="platinum">
               <Text weight="bolder">Platinum Sponsors</Text>
             </CardHeader>
-            <CardBody pad="large">
+            <CardBody >
               <Carousel fill wrap play="3000">
                 {props.platinumSponsors.map((image) => (
-                  <Image fit="contain" src={image} />
+                  <Image margin='large' fit="contain" src={image} />
                 ))}
               </Carousel>
             </CardBody>
@@ -105,10 +110,10 @@ const sponsors = (props) => {
             <CardHeader pad="medium" background="gold">
               <Text weight="bolder">Gold Sponsors</Text>
             </CardHeader>
-            <CardBody pad="large">
+            <CardBody>
               <Carousel fill wrap play="3000">
                 {props.goldSponsors.map((image) => (
-                  <Image fit="contain" src={image} />
+                  <Image margin='large' fit="contain" src={image} />
                 ))}
               </Carousel>
             </CardBody>
@@ -126,10 +131,10 @@ const sponsors = (props) => {
             <CardHeader pad="medium" background="silver">
               <Text weight="bolder">Silver Sponsors</Text>
             </CardHeader>
-            <CardBody pad="large">
+            <CardBody >
               <Carousel fill wrap play="3000">
                 {props.silverSponsors.map((image) => (
-                  <Image fit="contain" src={image} />
+                  <Image margin='large' fit="contain" src={image} />
                 ))}
               </Carousel>
             </CardBody>
@@ -147,10 +152,10 @@ const sponsors = (props) => {
             <CardHeader pad="medium" background="bronze">
               <Text weight="bolder">Bronze Sponsors</Text>
             </CardHeader>
-            <CardBody pad="large">
+            <CardBody >
               <Carousel fill wrap play="3000">
                 {props.bronzeSponsors.map((image) => (
-                  <Image fit="contain" src={image} />
+                  <Image margin='large' fit="contain" src={image} />
                 ))}
               </Carousel>
             </CardBody>

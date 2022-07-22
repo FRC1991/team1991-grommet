@@ -5,7 +5,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from "gray-matter"
 import snarkdown from "snarkdown"
-import RobotPost from "../components/robotPost"
+import RobotPost from "../components/RobotPost"
 import {
     Box,
     Card,

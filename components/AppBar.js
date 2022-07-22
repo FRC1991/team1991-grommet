@@ -58,8 +58,8 @@ const AppBar = (props) => {
               size="medium"
             />
             <Anchor
-              label="Creations"
-              href="creations"
+              label="Robots"
+              href="robots"
               color="dark-1"
               size="medium"
             />
@@ -183,8 +183,8 @@ const AppBar = (props) => {
                 top: "none",
                 bottom: "xsmall",
               }}
-              label="Creations"
-              href="creations"
+              label="Robots"
+              href="robots"
               color="dark-1"
               size="medium"
             />

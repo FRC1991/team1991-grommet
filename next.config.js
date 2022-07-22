@@ -10,7 +10,8 @@ module.exports = {
         if (!dev){
             config.plugins.push(
                 new CopyPlugin({
-                    patterns: [{from : 'posts', to: 'posts'}],
+                    patterns: [{from : 'posts', to: 'posts'},
+                    {from : 'robots', to: 'robots'}],
                 })
             )
         }

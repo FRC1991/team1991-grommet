@@ -6,8 +6,8 @@ backend:
 media_folder: public/img #images that are uploaded via Netlify Cms interface will be stored in this folder
 public_folder: img #I dont know
 collections:
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
-    label: "BlogPost" # Used in the UI
+  - name: "newsfeed" # Used in routes, e.g., /admin/collections/blog
+    label: "News Feed Post" # Used in the UI
     folder: "posts"
     create: true # Allow users to create new markdown files.
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
@@ -18,4 +18,14 @@ collections:
       - {label: "Featured Image", required: false, name: "thumbnail", widget: "image"}
       - {label: "Author", name: "author", widget: "string", default: "Admin"}
       - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Puppy Count", name: "puppies", widget: "number", default: 2, value_type: "int", min: 1, max: 101, step: 2}
+  - name: "robots"
+    label: "Robot"
+    folder: "robots"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "gameName"
+    fields:
+      - {label: "Game Name", name: "gameName", widget: "string"}
+      - {label: "Season Year", name: "seasonYear", widget: "string"}
+      - {label: "Robot Image", name: "robotImage", widget: "image"}
+      - {label: "Robot/Game Description", name: "robotBlurb", widget: "markdown"}

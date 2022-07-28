@@ -42,15 +42,12 @@ const robots = (props) => {
 }
 
 export async function getStaticProps() {
-    let basePath = process.cwd();
-    if (process.env.NODE_ENV === "production") {
-      basePath = path.join(process.cwd(), ".next/server/chunks");
-    }
-    const files = fs.readdirSync(path.join(basePath, "robots"));
+    let basePath = path.resolve('./robots');
+    const files = fs.readdirSync(basePath);
     var robots = [];
     files.forEach((file) => {
       const content = fs.readFileSync(
-        path.join(basePath, "robots", file),
+        path.join(basePath, file),
         "utf-8"
       );
       var parsedContent = matter(content);

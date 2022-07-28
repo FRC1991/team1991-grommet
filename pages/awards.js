@@ -98,10 +98,10 @@ const awards = (props) => {
 export async function getStaticProps() {
   let basePath = process.cwd();
   if (process.env.NODE_ENV === "production") {
-    basePath = path.join(process.cwd(), ".next/server/chunks");
+    basePath = path.resolve("./public");
   }
   const file = fs.readFileSync(
-    path.join(basePath, "public", "awards.yml"),
+    path.join(basePath, "awards.yml"),
     "utf-8"
   );
   const awards = yaml.load(file);

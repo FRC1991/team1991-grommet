@@ -41,7 +41,7 @@ const robots = (props) => {
     )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
     let basePath = process.cwd();
     if (process.env.NODE_ENV === "production") {
       basePath = path.join(process.cwd(), ".next/server/chunks");

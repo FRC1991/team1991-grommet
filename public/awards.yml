@@ -1,0 +1,76 @@
+##########################################
+# Please follow the format carefully in  #
+#  order to make sure awards are always  #
+#           read correctly.              #
+##########################################
+
+# Add new awards to the top of this file
+
+# Do not include hashtags when adding new awards
+
+# Each indent is two spaces
+
+# Double check your syntax with https://jsonformatter.org/yaml-viewer
+#     Paste in the entirety of this file and then click YAML Viewer to make sure 
+#     all entries are added the way you wanted 
+
+
+
+###############
+# Sample Data #
+###############
+
+# - "Season Year":
+#   - "Event Name":
+#     - "Award Name": "Award Description"
+#     - "Award Name": "Award Description"
+#     - "Award Name": "Award Description"
+#   - "Event Name":
+#     - "Award Name": "Award Description"
+#     - "Award Name": "Award Description"
+#     - "Award Name": "Award Description"
+# - "Season Year":
+#   - "Event Name":
+#     - "Award Name": "Award Description"
+#     - "Award Name": "Award Description"
+#     - "Award Name": "Award Description"
+#   - "Event Name":
+#     - "Award Name": "Award Description"
+#     - "Award Name": "Award Description"
+#     - "Award Name": "Award Description"
+
+
+
+- "2017":
+  - "NE District - WPI Regional":
+    - "Regional Event Winner": "Winner of the WPI competition together with teams 3623 and 2370."
+    - "Creativity Award sponsored by Xerox": "Celebrates creativity in design, use of component, or strategy of play."
+- "2016":
+  - "NE District - Hartford Event":
+    - "Gracious Professionalism Award sponsored by Johnson & Johnson": "Celebrates outstanding demonstration of FIRST Core Values such as continuous Gracious Professionalism® working together both on and off the playing field."
+- "2015":
+  - "NE District - Hartford Event":
+    - "Gracious Professionalism Award sponsored by Johnson & Johnson":  "Celebrates outstanding demonstration of FIRST Core Values such as continuous Gracious Professionalism® working together both on and off the playing field."
+- "2014":
+  - "NE District - Groton Event":
+    - "District Event Winner": "Winner of the Groton competition together with teams 230 and 1699."
+- "2013":
+  - "BAE Systems Granite State Regional":
+    - "Industrial Safety Award sponsored by Underwriters Laboratories": "Celebrates the team that progresses beyond safety fundamentals by using innovative ways to eliminate or protect against hazards."
+- "2012":
+  - "WPI Regional":
+    - "Innovation in Control Award sponsored by Rockwell Automation": "Celebrates an innovative control system or application of control components – electrical, mechanical, or software – to provide unique machine functions."
+    - "Coopertition Award": "Celebrates outstanding demonstration of FIRST Core Values such as continuous Gracious Professionalism® working together both on and off the playing field."
+  - "Northeast Utilities FIRST Connecticut Regional":
+    - "Innovation in Control Award sponsored by Rockwell Automation": "Celebrates an innovative control system or application of control components – electrical, mechanical, or software – to provide unique machine functions."
+- "2008":
+  - "Connecticut Regional":
+    - "Regional Finalists": "Finalists of the Connecticut Regional."
+    - "Delphi 'Driving Tomorrow's Technology' Award": ""
+- "2007":
+  - "UTC Connecticut Regional":
+    - "Website Award": "The Website Award recognizes excellence in student-designed, built, and managed FIRST team websites."
+    - "Coopertition Award": "Celebrates outstanding demonstration of FIRST Core Values such as continuous Gracious Professionalism® working together both on and off the playing field."
+  - "BAE SYSTEMS Granite State Regional":
+    - "Rookie All Star Award": "Celebrates the rookie team exemplifying a young but strong partnership effort, as well as implementing the mission of FIRST to inspire students to learn more about science and technology."
+    - "Highest Rookie Seed": "Celebrates the highest-seeded rookie team at the conclusion of the qualifying rounds."

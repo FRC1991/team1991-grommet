@@ -8,13 +8,7 @@ import snarkdown from "snarkdown"
 import RobotPost from "../components/RobotPost"
 import {
     Box,
-    Card,
-    CardHeader,
-    CardBody,
-    CardFooter,
     Grommet,
-    Image,
-    Text,
     ResponsiveContext,
     InfiniteScroll
 } from "grommet"

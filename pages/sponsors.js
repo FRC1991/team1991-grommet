@@ -14,6 +14,7 @@ import Head from "next/dist/shared/lib/head";
 import AppBar from "../components/AppBar";
 import * as fs from "fs";
 import * as path from "path";
+import CustomFooter from "../components/CustomFooter";
 
 const sponsors = (props) => {
   const size = React.useContext(ResponsiveContext);
@@ -162,6 +163,7 @@ const sponsors = (props) => {
           </Card>
         </CardBody>
       </Card>
+      <CustomFooter/>
     </Grommet>
   );
 };
@@ -192,7 +194,6 @@ export async function getStaticProps() {
     });
     imageURLs[imageSet] = collection;
   });
-  console.log(imageURLs);
   return { props: imageURLs };
 }
 

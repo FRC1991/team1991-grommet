@@ -96,10 +96,7 @@ const awards = (props) => {
 };
 
 export async function getStaticProps() {
-  let basePath = process.cwd();
-  if (process.env.NODE_ENV === "production") {
-    basePath = path.resolve("./public");
-  }
+  let basePath = path.resolve("./public");
   const file = fs.readFileSync(
     path.join(basePath, "awards.yml"),
     "utf-8"

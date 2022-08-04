@@ -128,8 +128,6 @@ export async function getServerSideProps() {
         title: event.summary,
         date: getUnixTime(startDate),
         description: description,
-        thumbnail:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Google_Calendar_icon_%282020%29.svg/256px-Google_Calendar_icon_%282020%29.svg.png",
         author: author,
       },
     });

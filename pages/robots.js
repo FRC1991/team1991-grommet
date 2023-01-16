@@ -25,7 +25,9 @@ const robots = (props) => {
         />
       </Head>
       <AppBar size={size}/>
-      <Box align="center"> 
+      <Box align="center" margin={{
+        top: "72px",
+      }}> 
             <InfiniteScroll items={props.robots}>
                 {(item)=> <RobotPost robotInfo={item.data}/>}
             </InfiniteScroll>

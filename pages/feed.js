@@ -77,7 +77,7 @@ const feed = ({ posts }) => {
   );
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   let basePath = process.cwd();
   if (process.env.NODE_ENV === "production") {
     basePath = path.join(process.cwd(), ".next/server/chunks");
@@ -93,46 +93,6 @@ export async function getServerSideProps() {
     parsedContent.content = snarkdown(parsedContent.content);
     posts.push(parsedContent);
   });
-  const timeMin = formatRFC3339(sub(new Date(), { weeks: 2 }));
-  const timeMax = formatRFC3339(add(new Date(), { months: 6 }));
-  const API_KEY = process.env.API_KEY;
-  const calendarId = "frc1991dragons@gmail.com";
-  const reqUrl = encodeURI(
-    `https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${API_KEY}&timeMin=${timeMin}&timeMax=${timeMax}`
-  );
-  const responseJSON = await fetch(reqUrl).then((response) => response.json());
-  const events = responseJSON.items;
-  const eventArray = [];
-  events.forEach((event) => {
-    let startDate;
-    let endDate;
-    if ("dateTime" in event.start) {
-      startDate = new Date(event.start.dateTime);
-      endDate = new Date(event.end.dateTime);
-    } else {
-      startDate = parseISO(event.start.date);
-      endDate = parseISO(event.end.date);
-    }
-    const body = `<b>Calendar event named:</b> ${
-      event.summary
-    } <br/><b>Starting at:</b> ${format(
-      startDate,
-      "p 'on' PPP"
-    )}<br/><b>Ending at:</b> ${format(endDate, "p 'on' PPP")}`;
-    const description = "Google Calendar Event";
-    const author = "Google Calendar";
-
-    eventArray.push({
-      content: body,
-      data: {
-        title: event.summary,
-        date: getUnixTime(startDate),
-        description: description,
-        author: author,
-      },
-    });
-  });
-  posts = posts.concat(eventArray);
   function comparePosts(a, b) {
     var aDate = a.data.date;
     var bDate = b.data.date;
@@ -143,7 +103,7 @@ export async function getServerSideProps() {
   posts.sort(comparePosts);
   return {
     props: {
-      posts: JSON.parse(JSON.stringify(posts)),
+      posts:posts,
     },
   };
 }

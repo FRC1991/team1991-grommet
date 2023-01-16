@@ -65,18 +65,18 @@ const AppBar = (props) => {
             />
             <Anchor label="Media" href="media" color="dark-1" size="medium" />
             <Anchor label="Awards" href="awards" color="dark-1" size="medium" />
-            <Box background="#ff9030" round="medium">
               <Anchor
                 label="News Feed"
-                margin={{
-                  vertical: "xsmall",
-                  horizontal: "small",
-                }}
                 href="feed"
                 color="dark-1"
                 size="medium"
               />
-            </Box>
+            <Anchor
+              label="Calendar Feed"
+              href="calFeed"
+              color="dark-1"
+              size="medium"
+            />
             <Box background="#ff9030" round="medium">
               <Anchor
                 label="Donations"
@@ -89,18 +89,6 @@ const AppBar = (props) => {
                 size="medium"
               />
             </Box>
-            <Nav
-              style={{
-                float: "right",
-                marginRight: "none",
-                marginLeft: "auto",
-              }}
-              direction="row"
-              background="light-1"
-              pad="medium"
-            >
-              <Anchor icon={<Menu />} href="admin/index.html" />
-            </Nav>
           </Nav>
         </Box>
       </Grommet>
@@ -208,18 +196,26 @@ const AppBar = (props) => {
               color="dark-1"
               size="medium"
             />
-            <Box  margin="small" background="#ff9030" round="medium">
-              <Anchor
-                label="News Feed"
-                margin={{
-                  vertical: "xsmall",
-                  horizontal: "small",
-                }}
-                href="feed"
-                color="dark-1"
-                size="medium"
-              />
-            </Box>
+            <Anchor
+              label="News Feed"
+              margin={{
+                top: "none",
+                bottom: "xsmall",
+              }}
+              href="feed"
+              color="dark-1"
+              size="medium"
+            />
+            <Anchor
+              label="Calendar Feed"
+              margin={{
+                top: "none",
+                bottom: "xsmall",
+              }}
+              href="calFeed"
+              color="dark-1"
+              size="medium"
+            />
             <Box margin="small" background="#ff9030" round="medium">
               <Anchor
                 label="Donations"

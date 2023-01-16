@@ -21,11 +21,13 @@ import {
   Carousel,
   Stack,
 } from "grommet";
-import { FormClose, Menu } from "grommet-icons";
+import path from 'path';
+import fs from 'fs'
+import { FormClose, Menu, base } from "grommet-icons";
 import AppBar from "../components/AppBar";
 import CustomFooter from "../components/CustomFooter";
 
-export default function Home() {
+export default function Home(props) {
   const size = React.useContext(ResponsiveContext);
   var aboutUsSection =
     size !== "small" ? (
@@ -36,10 +38,9 @@ export default function Home() {
         <CardBody direction="row" pad="medium">
           <Box width="50%">
             <Carousel wrap play="5000" fill>
-              <Image fit="cover" src="/img/dsc00361.jpg" />
-              <Image fit="cover" src="/img/orangeplanetwithpurplering.png" />
-              <Image fit="cover" src="/img/team.jpg" />
-              <Image fit="cover" src="/img/starwars-team-photo.png" />
+            {props.imageURLs.map((image) => (
+                  <Image fit="cover" src={image} />
+                ))}
             </Carousel>
           </Box>
           <Box width="50%" direction="column" overflow="auto">
@@ -161,10 +162,9 @@ export default function Home() {
             The UHSSE 4-H Robotics Team is a project of the UConn 4-H Program.
           </Paragraph>
           <Carousel wrap height="medium" play="5000">
-            <Image fit="contain" src="/img/dsc00361.jpg" />
-            <Image fit="contain" src="/img/orangeplanetwithpurplering.png" />
-            <Image fit="contain" src="/img/team.jpg" />
-            <Image fit="contain" src="/img/starwars-team-photo.png" />
+          {props.imageURLs.map((image) => (
+                  <Image fit="contain" src={image} />
+                ))}
           </Carousel>
         </CardBody>
       </Card>
@@ -212,7 +212,7 @@ export default function Home() {
         >
           We are the Dragons.
         </Text>
-        <Image fill="horizontal" fit="cover" src="/img/dsc00361.jpg" />
+        <Image fill="horizontal" fit="cover" src="/indexImages/dsc00361.jpg" />
       </Box>
       <Box
         width="full"
@@ -257,4 +257,15 @@ export default function Home() {
       </Box>
     </Grommet>
   );
+}
+
+export async function getStaticProps() {
+    let basePath = path.resolve("./public/indexImages");
+    let images = {}
+    images = fs.readdirSync(basePath);
+    let imageURLs = [];
+    images.forEach((image) => {
+      imageURLs.push(`/indexImages/${image}`);
+    });
+    return {props: {imageURLs}};
 }

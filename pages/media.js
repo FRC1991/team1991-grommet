@@ -40,7 +40,7 @@ const media = (props) => {
                   left: "medium",
                   right: "medium",
                 }}>
-                    <Carousel fill>
+                    <Carousel fill play="5000">
                         {item.files.map((image) => (
                             <Image fit="contain" src={image}/>
                         ))}

@@ -22,9 +22,7 @@ function MyApp({ Component, pageProps }) {
   };
   return (
     <Grommet theme={global.theme}>
-      <link rel="preconnect" href="https://fonts.googleapis.com"/>
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
+      <link rel="preload" as="font" href="https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2"/>
       <Component {...pageProps} />
     </Grommet>
   );

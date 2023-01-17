@@ -1,9 +1,9 @@
 import { grommet, Grommet } from "grommet";
 import "../public/admin/noBodyMargins.css";
-import "@fontsource/roboto"
 
 function MyApp({ Component, pageProps }) {
   global.theme = {
+    
     global: {
       colors: {
         brand: "#FF8210",
@@ -22,6 +22,9 @@ function MyApp({ Component, pageProps }) {
   };
   return (
     <Grommet theme={global.theme}>
+      <link rel="preconnect" href="https://fonts.googleapis.com"/>
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
       <Component {...pageProps} />
     </Grommet>
   );

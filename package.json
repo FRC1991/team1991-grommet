@@ -9,6 +9,7 @@
     "debug": "node --inspect ./node_modules/next/dist/bin/next"
   },
   "dependencies": {
+    "@fontsource/roboto": "^4.5.8",
     "@openlab/vercel-netlify-cms-github": "^1.1.0",
     "copy-webpack-plugin": "^9.0.1",
     "date-fns": "^2.23.0",

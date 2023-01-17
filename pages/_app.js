@@ -1,5 +1,6 @@
 import { grommet, Grommet } from "grommet";
 import "../public/admin/noBodyMargins.css";
+import "@fontsource/roboto"
 
 function MyApp({ Component, pageProps }) {
   global.theme = {

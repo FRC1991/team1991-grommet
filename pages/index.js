@@ -212,7 +212,7 @@ export default function Home(props) {
         >
           We are the Dragons.
         </Text>
-        <Image fill="horizontal" fit="cover" src="/indexImages/dsc00361.jpg" />
+        <Image fill="horizontal" fit="cover" src="/indexImages/team.jpg" />
       </Box>
       <Box
         width="full"

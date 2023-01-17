@@ -223,7 +223,7 @@ export default function Home(props) {
       >
         <Card margin="small" background="light-1" elevation="large" flex="grow">
           <CardHeader pad="medium" background="light-3">
-            Best match of 2022
+            Featured Match
           </CardHeader>
           <CardBody pad="medium">
             <Box

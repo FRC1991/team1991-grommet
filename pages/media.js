@@ -14,7 +14,9 @@ const media = (props) => {
                 <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet"/>
             </Head>
             <AppBar size={size}/>
-            <Box align="center">
+            <Box margin={{
+                top: "72px",
+            }} align="center">
                 <InfiniteScroll items={props.out}>
                     {
                     (item)=> (
@@ -60,6 +62,7 @@ export function getStaticProps() {
     let basePath = path.resolve('./public');
     let out = [];
     const dirs = fs.readdirSync(path.join(basePath, 'mediaPage'));
+    dirs.sort().reverse();
     dirs.forEach(dir => {
         out.push({name: dir, files: fs.readdirSync(path.join(basePath, 'mediaPage', dir)).map(file => `/mediaPage/${dir}/${file}`)});
     });

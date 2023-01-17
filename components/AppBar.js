@@ -10,7 +10,7 @@ import {
   Text,
 } from "grommet";
 
-import { Menu } from "grommet-icons";
+import { Github, Instagram, Mail, Menu } from "grommet-icons";
 import React from "react";
 
 const AppBar = (props) => {
@@ -88,6 +88,20 @@ const AppBar = (props) => {
                 color="dark-1"
                 size="medium"
               />
+            </Box>
+            <Box
+              style={{
+                float: "right",
+                marginRight: "20px",
+                marginLeft: "auto",
+              }}
+              direction="row"
+              background="light-1"
+              pad="None"
+            >
+              <Anchor icon={<Github />} href="https://github.com/frc1991/" />
+              <Anchor icon={<Instagram />} href="https://www.instagram.com/frcteam1991/" />
+              <Anchor icon={<Mail />} href="mailto:frc1991dragons@gmail.com" />
             </Box>
           </Nav>
         </Box>

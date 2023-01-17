@@ -57,7 +57,9 @@ const feed = ({ posts }) => {
         }}
         size={size}
       />
-      <Box align="center" width="full">
+      <Box margin={{
+        top: "72px",
+      }} align="center" width="full">
         <Grid
           width="full"
           columns="500px"

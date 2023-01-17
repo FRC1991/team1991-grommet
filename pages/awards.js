@@ -30,7 +30,9 @@ const awards = (props) => {
         />
       </Head>
       <AppBar size={size} />
-      <Box align="center">
+      <Box align="center" margin={{
+        top: "72px",
+      }}>
         <InfiniteScroll items={props.awards}>
           {(year) => (
             <Card

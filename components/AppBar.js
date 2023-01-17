@@ -242,6 +242,11 @@ const AppBar = (props) => {
                 size="medium"
               />
             </Box>
+            <Box direction="row" pad="None">
+              <Anchor icon={<Github />} href="https://github.com/frc1991/" />
+              <Anchor icon={<Instagram />} href="https://www.instagram.com/frcteam1991/" />
+              <Anchor icon={<Mail />} href="mailto:frc1991dragons@gmail.com" />
+              </Box>
           </Box>
         </Collapsible>
       </Grommet>

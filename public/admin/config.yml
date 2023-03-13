@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: arya1106/team1991-grommet
+  repo: team1991/team1991-grommet
   base_url: https://team1991-grommet.vercel.app/
   auth_endpoint: api/auth
 media_folder: public/img #images that are uploaded via Netlify Cms interface will be stored in this folder

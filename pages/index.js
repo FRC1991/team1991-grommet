@@ -72,8 +72,8 @@ export default function Home(props) {
               program, the team allows students to apply concepts learned in
               school as well as develop new skills thanks to various workshops
               taught by our mentors. In the past years, the students were able
-              to take advantage of the SolidWorks, LabView, Welding and
-              Electronics classes taught by our mentors.
+              to take advantage of the SolidWorks, LabView, Java, Welding and
+              Electronics classes taught by our mentors and student leaders.
             </Paragraph>
             <Paragraph
               fill

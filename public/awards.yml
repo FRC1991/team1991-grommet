@@ -40,7 +40,19 @@
 #     - "Award Name": "Award Description"
 
 
-
+- "2023"
+  - "NE District - Waterbury Event"
+    - "Imagery Award in honor of Jack Kamen": "In honor of Jack Kamen, Dean’s father, for his dedication to art and illustration and his devotion to FIRST. This award celebrates attractiveness in engineering and outstanding visual aesthetic integration of machine and team appearance."
+- "2022"
+  - "NE District - Waterbury Event"
+    - "District Event Finalist": "Competed in the finals of the event"
+  - "NE District - Western New England Event"
+    - "Innovation in Control Award": "Celebrates an innovative control system or application of control components – electrical, mechanical or software – to provide unique machine functions"
+  - "NE District - Hartford Event"
+    - "Judges' Award": "During the course of the competition, the judging panel may decide a team’s unique efforts, performance, or dynamics merit recognition."
+- "2021"
+  - "Infinite recharge at home"
+    - "Autonomous Award sponsored by Ford": "Celebrates the team that has demonstrated consistent, reliable, high-performance robot operation during autonomously managed actions"
 - "2017":
   - "NE District - WPI Regional":
     - "Regional Event Winner": "Winner of the WPI competition together with teams 3623 and 2370."
